@@ -1,0 +1,51 @@
+/* Inter — Normal and Italic */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Murecho */
+@font-face {
+  font-family: 'Murecho';
+  src: url('/fonts/Murecho/Murecho-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Nunito Sans — Normal and Italic */
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC_opsz_wdth_wght.ttf') format('truetype');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('/fonts/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC_opsz_wdth_wght.ttf') format('truetype');
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Candal - Front page text*/
+@font-face {
+  font-family: 'Candal';
+  src: url('/fonts/Candal/Candal-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

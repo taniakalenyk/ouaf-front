@@ -1,0 +1,9 @@
+/* Width according to 12 columns */
+
+.column-6 {
+  width: 50vw;
+  max-width: 37.25rem; // 596px
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,148 @@
+@use 'colors' as *;
+
+/* FONT WEIGHTS */
+$weight-thin: 100;
+$weight-extra-light: 200;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semi-bold: 600;
+$weight-bold: 700;
+$weight-extra-bold: 800;
+$weight-black: 900;
+
+/* FONT SIZES */
+$font-xs: 0.75rem;   // 12px
+$font-sm: 0.875rem;  // 14px
+$font-base: 1rem;    // 16px
+$font-lg: 1.125rem;  // 18px
+$font-xl: 1.5rem;    // 24px
+$font-2xl: 2rem;     // 32px
+$font-3xl: 2.5rem;   // 40px
+
+/* TYPOGRAPHY */
+
+/* Default body text + header */
+.body-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700; // bold
+  text-decoration: none;
+}
+
+/* Button text */
+.button-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.25rem; // 20px
+  font-weight: 700; // bold
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Front page huge text */
+.front-text {
+  font-family: "Candal", sans-serif;
+  font-size: 10rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+/* Big title text */
+.big-title-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 6rem; // 96px
+  font-weight: 900; // black
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Title text */
+.title-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 900; // black
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Subtitle text */
+.subtitle-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 700; // bold
+  text-decoration: none;
+}
+
+/* Subtitle description */
+.lead-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.25rem; // 20px
+  font-weight: 700; // bold
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Small italic - for notes on profile */
+.small-italic {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem; // 14px
+  font-weight: 300; // light
+  font-style: italic;
+  text-decoration: none;
+}
+
+/* Photo title */
+.photo-title {
+  font-family: "Inter", sans-serif;
+  font-size: 0.63rem; // 10px
+  font-weight: 700; // bold
+  text-decoration: none;
+}
+
+/* XS italic - for photo description */
+.xs-italic {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.56rem; // 9px
+  font-weight: 300; // light
+  font-style: italic;
+  text-decoration: none;
+}
+
+/* Copyright text */
+.copyright-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem; // 14px
+  font-weight: 500; // medium
+  text-decoration: none;
+}
+
+/* TEXT COLORS */
+
+.accent-hover {
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.black-hover {
+  &:hover {
+    color: $black;
+  }
+}
+
+.accent-color {
+  color: $accent-color;
+}
+
+.light-grey {
+  color: $light-grey;
+}
+
+.dark-grey {
+  color: $dark-grey;
+}
+
+.black {
+  color: $black;
+}

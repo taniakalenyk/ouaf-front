@@ -1,0 +1,55 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/screens' as *;
+
+footer {
+  //background-color: $black;
+  //backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
+
+  & .social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  & .social-icon {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.5rem;
+    color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .contour {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 0.125rem $black;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.inner-footer {
+  gap: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6.88rem 2.25rem 6.88rem;
+}

@@ -1,0 +1,23 @@
+/* global styles */
+@use 'colors' as *;
+@use 'fonts' as *;
+@use 'screens' as *;
+@use 'typography' as *;
+@use 'columns' as *;
+@use 'layout' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  background-color: $background;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

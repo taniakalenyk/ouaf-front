@@ -1,0 +1,81 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/screens' as *;
+
+header {
+  background: linear-gradient(to bottom, rgba($background, 1), rgba($background, 1), rgba($background, 0.9), rgba($background, 0.7), rgba($background, 0));
+  //backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px); // for Safari support
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 1;
+
+  & .user-icon {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.5rem;
+    color: $accent-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .logo {
+    height: 3.4rem;
+  }
+
+  & .contour {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 0.125rem $accent-color;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.inner-header {
+  gap: 2rem;
+  width: 100%;
+  //max-width: $screen-hd;
+  //min-width: $screen-lg;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.25rem 6.88rem 1rem 6.88rem;
+}
+
+.login-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    list-style: none;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
