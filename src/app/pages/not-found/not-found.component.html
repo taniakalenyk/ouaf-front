@@ -1,17 +1,21 @@
-<app-header></app-header>
-<div class="main-container">
+<div class="main-container not-found-image">
+  <app-header></app-header>
   <div class="inner-main-container">
-    <div class="front-text-block">
-      <p class="front-text">mon</p>
-      <!--      <p class="front-text">chien?</p>-->
-    </div>
+    <div class="gap-1-75 column-6">
 
-    <div class="column-6">
-      <p class="subtitle-text dark-grey">Peu importe comment vous l’appeler, nous saurons l’éduquer</p>
-    </div>
-    <div class="gap-1">
-      <p class="body-text dark-grey">Accéder à votre compte utilisateur</p>
-      <app-button type="button" label="Login"></app-button>
+      <div class="gap-1">
+        <p class="big-title-text black center">Oups !</p>
+        <p class="title-text accent-color center">page non trouvée</p>
+        <div>
+          <p class="subtitle-text dark-grey center">On l’a cherchée partout,</p>
+          <p class="subtitle-text dark-grey center">même derrière les croquettes.</p>
+          <p class="subtitle-text dark-grey center">Rien à faire.</p>
+        </div>
+      </div>
+
+      <app-button variant="long" type="button" label="Login"></app-button>
+
     </div>
   </div>
+  <app-footer></app-footer>
 </div>

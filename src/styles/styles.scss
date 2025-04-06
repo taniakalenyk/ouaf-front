@@ -5,6 +5,8 @@
 @use 'typography' as *;
 @use 'columns' as *;
 @use 'layout' as *;
+@use 'background-image' as *;
+@use 'gaps' as *;
 
 * {
   margin: 0;

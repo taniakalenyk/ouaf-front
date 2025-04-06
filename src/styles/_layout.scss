@@ -5,20 +5,17 @@
   width: 100vw;
   height: 100vh;
   max-width: $screen-xxl;
-  background-image: url('/images/home.jpg');
   background-color: $background;
   background-size: cover;
-  background-position: center;
+  background-position: center right;
   background-blend-mode: darken;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  //justify-content: space-between;
   overflow: hidden;
 }
 
 .inner-main-container {
-  gap: 5.75rem;
   width: 100%;
   display: flex;
   flex: 1;

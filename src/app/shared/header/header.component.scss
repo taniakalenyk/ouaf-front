@@ -2,7 +2,13 @@
 @use '../../../styles/screens' as *;
 
 header {
-  background: linear-gradient(to bottom, rgba($background, 1), rgba($background, 1), rgba($background, 0.9), rgba($background, 0.7), rgba($background, 0));
+  background:
+    linear-gradient(to bottom,
+    rgba($background, 1),
+    rgba($background, 1),
+    rgba($background, 0.9),
+    rgba($background, 0.7),
+    rgba($background, 0));
   //backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px); // for Safari support
   display: flex;
@@ -13,7 +19,7 @@ header {
   position: sticky;
   top: 0;
   overflow: hidden;
-  z-index: 1;
+  z-index: 7;
 
   & .user-icon {
     height: 2rem;
@@ -38,7 +44,6 @@ header {
 }
 
 .inner-header {
-  gap: 2rem;
   width: 100%;
   //max-width: $screen-hd;
   //min-width: $screen-lg;
@@ -60,13 +65,11 @@ header {
 .menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
 
   .list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 2rem;
     list-style: none;
     white-space: nowrap;
     margin: 0;
