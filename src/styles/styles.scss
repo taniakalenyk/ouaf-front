@@ -7,6 +7,9 @@
 @use 'layout' as *;
 @use 'background-image' as *;
 @use 'gaps' as *;
+@use 'paddings' as *;
+
+@include generate-paddings();
 
 * {
   margin: 0;
@@ -23,3 +26,22 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+a,
+button,
+input,
+textarea,
+select,
+svg,
+img {
+  transition: all 0.2s ease-in-out;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+

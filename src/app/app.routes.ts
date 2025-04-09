@@ -1,3 +1,46 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
+import {HomepageComponent} from './pages/homepage/homepage.component';
+import {LogoutComponent} from './pages/logout/logout.component';
+import {LoginComponent} from './pages/login/login.component';
+import {SignupComponent} from './pages/signup/signup.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: 'home',
+    component: HomepageComponent,
+    data: {background: 'home-image'}
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {background: 'login-image'}
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    data: {background: 'signup-image'}
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+    data: {background: 'logout-image'}
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+    data: {background: 'not-found-image'}
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    component: HomepageComponent,
+    data: {background: 'home-image'}
+  },
+
+  // should be the last one on the list!
+  {
+    path: '**',
+    redirectTo: '/not-found',
+  }
+];

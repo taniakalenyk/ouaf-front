@@ -1,2 +1,7 @@
-<app-logout></app-logout>
-<router-outlet></router-outlet>
+<div class="main-container" [ngClass]="backgroundClass">
+  <app-header></app-header>
+  <div class="inner-main-container">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

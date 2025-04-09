@@ -1,7 +1,7 @@
 <header>
   <div class="inner-header gap-2">
     <div>
-      <img class="logo" src="logo.svg" alt="OUAF logo"/>
+      <a routerLink="/home"><img alt="OUAF logo" class="logo" src="logo.svg"/></a>
     </div>
 
     <nav class="menu gap-2">
@@ -16,17 +16,20 @@
 
       <div class="login-button body-text accent-color" routerLink="/login">
         <div class="contour">
-        <svg class="user-icon" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_1614_1728)">
-            <path d="M8 0.5C5.8 0.5 4 2.74 4 5.5C4 8.26 5.8 10.5 8 10.5C10.2 10.5 12 8.26 12 5.5C12 2.74 10.2 0.5 8 0.5ZM3.82 10.5C1.7 10.6 0 12.34 0 14.5V16.5H16V14.5C16 12.34 14.32 10.6 12.18 10.5C11.1 11.72 9.62 12.5 8 12.5C6.38 12.5 4.9 11.72 3.82 10.5Z" fill="currentColor"/>
-          </g>
-          <defs>
-            <clipPath id="clip0_1614_1728">
-              <rect width="17" height="17" fill="none"/>
-            </clipPath>
-          </defs>
-        </svg>
-          </div>
+          <svg class="user-icon" fill="none" height="17" viewBox="0 0 16 17" width="16"
+               xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1614_1728)">
+              <path
+                d="M8 0.5C5.8 0.5 4 2.74 4 5.5C4 8.26 5.8 10.5 8 10.5C10.2 10.5 12 8.26 12 5.5C12 2.74 10.2 0.5 8 0.5ZM3.82 10.5C1.7 10.6 0 12.34 0 14.5V16.5H16V14.5C16 12.34 14.32 10.6 12.18 10.5C11.1 11.72 9.62 12.5 8 12.5C6.38 12.5 4.9 11.72 3.82 10.5Z"
+                fill="currentColor"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_1614_1728">
+                <rect fill="none" height="17" width="17"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
         <span>LOGIN</span>
       </div>
     </nav>

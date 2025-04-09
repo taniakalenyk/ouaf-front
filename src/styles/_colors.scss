@@ -10,3 +10,46 @@ $light-grey: #D7D7D7;
 
 /* Card Shadow */
 $card-shadow: 0px 6px 10px rgba(138, 149, 158, 0.2);
+
+
+/* HOVERS */
+
+.accent-hover {
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.black-hover {
+  &:hover {
+    color: $black;
+    border-color: $dark-grey;
+    cursor: pointer;
+
+    input {
+      border-color: $dark-grey;
+    }
+  }
+}
+
+/* COLORS */
+
+.accent-color {
+  color: $accent-color;
+}
+
+.off-white {
+  color: $off-white;
+}
+
+.light-grey {
+  color: $light-grey;
+}
+
+.dark-grey {
+  color: $dark-grey;
+}
+
+.black {
+  color: $black;
+}

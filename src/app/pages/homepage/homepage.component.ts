@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import {HeaderComponent} from '../../shared/header/header.component';
+import {Component} from '@angular/core';
 import {ButtonComponent} from '../../shared/button/button.component';
-import {FooterComponent} from '../../shared/footer/footer.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
   imports: [
-    HeaderComponent,
     ButtonComponent,
-    FooterComponent
+    RouterLink
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'

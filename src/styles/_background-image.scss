@@ -3,9 +3,17 @@
 }
 
 .not-found-image {
-  background-image: url('/images/404.png');
+  background-image: url('/images/not-found.png');
 }
 
 .logout-image {
   background-image: url('/images/logout.png');
+}
+
+.login-image {
+  background-image: url('/images/login.png');
+}
+
+.signup-image {
+  background-image: url('/images/signup.png');
 }

@@ -1,33 +1,58 @@
 @use '../../../styles/colors' as *;
 
 button {
-  display: block;
   padding: 0.75rem 1.5rem;
   border: $light-grey;
   border-radius: 0.25rem; // 4px
-  background-color: $accent-color;
   color: $off-white;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
 
   &.login {
     width: 11.25rem;
     padding: 0.41rem;
+    background-color: $accent-color;
+    color: $off-white;
   }
 
   &.long {
     width: 100%;
+    background-color: $accent-color;
+    color: $off-white;
+    height: 3.25rem;
   }
 
-  &.connection {
-    width: 30.75rem; // 492px
+  &.home {
+    padding: 0.41rem 1rem;
+    width: 11.25rem; // 180px
+    background-color: $accent-color;
+    color: $off-white;
+  }
+
+  &.google-button {
+    width: 100%;
+    background-color: $off-white;
+    color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 1.5rem;
+    height: 3.25rem;
   }
 
   &:hover {
     background-color: $black;
+    color: $off-white;
   }
 
   &:active {
     background-color: $dark-grey;
+    color: $off-white;
   }
 }
