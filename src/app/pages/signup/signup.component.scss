@@ -1,6 +1,7 @@
 // TODO combine inputs into a component
 
 @use '../../../styles/colors' as *;
+@use '../../../styles/flex-properties' as *;
 
 .eye-icon {
   color: $light-grey;
@@ -16,31 +17,6 @@
   border-radius: 0;
   border: 0;
   outline: none;
-}
-
-.width-100 {
-  width: 100%;
-}
-
-.flex {
-  display: flex;
-  flex: 1;
-}
-
-.space-between {
-  justify-content: space-between;
-}
-
-.f-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.f-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .input {

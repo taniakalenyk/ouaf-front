@@ -8,7 +8,9 @@
 @use 'background-image' as *;
 @use 'gaps' as *;
 @use 'paddings' as *;
+@use 'flex-properties' as *;
 
+@include generate-gaps();
 @include generate-paddings();
 
 * {
@@ -45,3 +47,12 @@ img {
   text-align: center;
 }
 
+.align-items-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.scroll {
+  overflow-y: scroll;
+}

@@ -1,0 +1,18 @@
+<div
+  [ngStyle]="{ width: width, height: height }"
+  class="polaroid shadow "
+>
+  <div class="polaroid-picture">
+    <img [src]="finalImageUrl" alt="album_image">
+  </div>
+
+  <div class="photo-description">
+    <div class="photo-title">
+      {{ title }}
+    </div>
+
+    <div class="xs-italic">
+      {{ description }}
+    </div>
+  </div>
+</div>

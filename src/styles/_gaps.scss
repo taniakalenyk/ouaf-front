@@ -1,35 +1,23 @@
-.gap-05 {
-  gap: 0.5rem;
-}
+$gap-scale: (
+  "0-5": 0.5rem,
+  "0-65": 0.65rem,
+  "1": 1rem,
+  "1-25": 1.25rem,
+  "1-5": 1.5rem,
+  "1-75": 1.75rem,
+  "2": 2rem,
+  "2-25": 2.25rem,
+  "2-5": 2.5rem,
+  "3": 3rem,
+  "3-5": 3.5rem,
+  "4": 4rem,
+  "5": 5rem,
+);
 
-.gap-1 {
-  gap: 1rem;
-}
-
-.gap-1-25 {
-  gap: 1.25rem;
-}
-
-.gap-1-5 {
-  gap: 1.5rem;
-}
-
-.gap-1-75 {
-  gap: 1.75rem;
-}
-
-.gap-2 {
-  gap: 2rem;
-}
-
-.gap-3 {
-  gap: 3rem;
-}
-
-.gap-4 {
-  gap: 4rem;
-}
-
-.gap-5 {
-  gap: 5rem;
+@mixin generate-gaps {
+  @each $key, $value in $gap-scale {
+    .gap-#{$key} {
+      gap: $value;
+    }
+  }
 }

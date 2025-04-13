@@ -4,6 +4,7 @@ import {HomepageComponent} from './pages/homepage/homepage.component';
 import {LogoutComponent} from './pages/logout/logout.component';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import {ProfileComponent} from './pages/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: {background: 'login-image'}
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'signup',
