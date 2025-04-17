@@ -1,20 +1,42 @@
-<!--TODO fix inner-shadow-->
+<!--<div-->
+<!--  [ngStyle]="{ width: width, height: height }"-->
+<!--  class="polaroid shadow"-->
+<!--&gt;-->
+<!--  <div class="polaroid-picture">-->
+<!--    <img [src]="finalImageUrl" alt="album_image">-->
+<!--  </div>-->
+
+<!--  <div class="photo-description">-->
+<!--    <div class="photo-title">-->
+<!--      {{ title }}-->
+<!--    </div>-->
+
+<!--    <div class="xs-italic">-->
+<!--      {{ description }}-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 <div
+  [ngClass]="polaroidView ? 'polaroid' : 'full-size'"
+
   [ngStyle]="{ width: width, height: height }"
-  class="polaroid shadow"
+  class="shadow"
 >
-  <div class="polaroid-picture inner-shadow">
+  <div class="polaroid-picture">
     <img [src]="finalImageUrl" alt="album_image">
   </div>
 
-  <div class="photo-description">
-    <div class="photo-title">
-      {{ title }}
-    </div>
 
-    <div class="xs-italic">
-      {{ description }}
+  @if (polaroidView) {
+    <div [ngClass]="zoomed ? ['photo-description-zoomed'] : ['photo-description']">
+      <p [ngClass]="zoomed ? ['photo-title-zoomed'] : ['photo-title']">
+        {{ title }}
+      </p>
+      <p [ngClass]="zoomed ? ['xs-italic-zoomed'] : ['xs-italic']">
+        {{ description }}
+      </p>
     </div>
-  </div>
+  }
+
 </div>
