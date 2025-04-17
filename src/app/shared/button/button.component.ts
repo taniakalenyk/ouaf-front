@@ -5,8 +5,9 @@ import {NgClass, NgIf} from '@angular/common';
   selector: 'app-button',
   imports: [NgClass, NgIf],
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  styleUrl: './button.component.scss'
 })
+
 export class ButtonComponent {
   @Input() label: string = 'Click';
   @Input() type: 'button' | 'submit' = 'button';

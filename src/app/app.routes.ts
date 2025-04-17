@@ -5,6 +5,7 @@ import {LogoutComponent} from './pages/logout/logout.component';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {ProfileComponent} from './pages/profile/profile.component';
+import {AcademyGalleryComponent} from './pages/academy-gallery/academy-gallery.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,11 @@ export const routes: Routes = [
     path: 'logout',
     component: LogoutComponent,
     data: {background: 'logout-image'}
+  },
+
+  {
+    path: 'academy-gallery',
+    component: AcademyGalleryComponent,
   },
   {
     path: 'not-found',

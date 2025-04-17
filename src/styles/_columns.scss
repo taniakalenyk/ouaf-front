@@ -1,5 +1,13 @@
 /* Width according to 12 columns */
 
+.column-7 {
+  width: 63%;
+  max-width: 36rem;
+  min-width: 29rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .column-6 {
   width: 50%;
   max-width: 36rem;

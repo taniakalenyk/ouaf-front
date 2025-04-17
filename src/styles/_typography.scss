@@ -117,10 +117,26 @@ $font-3xl: 2.5rem; // 40px
   text-transform: uppercase;
 }
 
+.photo-title-zoomed {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 /* XS italic - for photo description */
 .xs-italic {
   font-family: "Nunito Sans", sans-serif;
   font-size: 0.56rem; // 9px
+  font-weight: 300; // light
+  font-style: italic;
+  text-decoration: none;
+}
+
+.xs-italic-zoomed {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.89rem;
   font-weight: 300; // light
   font-style: italic;
   text-decoration: none;

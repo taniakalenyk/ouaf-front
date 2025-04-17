@@ -11,4 +11,5 @@ import {PolaroidComponent} from '../polaroid/polaroid.component';
 })
 export class DogsComponent {
 
+
 }

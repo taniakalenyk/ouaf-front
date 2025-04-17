@@ -8,7 +8,7 @@ import {GalleryComponent} from '../../shared/gallery/gallery.component';
   imports: [
     CardComponent,
     DogsComponent,
-    GalleryComponent
+    GalleryComponent,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
