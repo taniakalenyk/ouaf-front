@@ -5,3 +5,33 @@
 .front-text-block {
   display: block;
 }
+
+@keyframes image-cycle {
+  0% {
+    content: url("/icons/chien.svg");
+  }
+  33.33% {
+    content: url("/icons/chien.svg");
+  }
+  33.34% {
+    content: url("/icons/chiot.svg");
+  }
+  66.66% {
+    content: url("/icons/chiot.svg");
+  }
+  66.67% {
+    content: url("/icons/stre.svg");
+  }
+  100% {
+    content: url("/icons/stre.svg");
+  }
+}
+
+.animation {
+  padding-left: 6.5rem;
+  margin-top: -2.06rem;
+
+  img {
+    animation: image-cycle 3.5s linear infinite;
+  }
+}

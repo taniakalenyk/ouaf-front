@@ -9,7 +9,7 @@ import {RouterLink} from '@angular/router';
     RouterLink
   ],
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss'],
+  styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent {
 
