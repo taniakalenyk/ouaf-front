@@ -18,7 +18,7 @@
 <!--</div>-->
 
 <div
-  [ngClass]="polaroidView ? 'polaroid' : 'full-size'"
+  [ngClass]="zoomed ? (polaroidView ? 'polaroid padding-1' : 'full-size') : (polaroidView ? 'polaroid padding-0-63' : 'full-size')"
 
   [ngStyle]="{ width: width, height: height }"
   class="shadow"
