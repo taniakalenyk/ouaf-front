@@ -8,6 +8,7 @@
   //min-width: 24.25rem;
   border-radius: 0.25rem;
   border: 1px solid $light-grey;
+  background-color: $off-white;
 }
 
 .border-bottom {
@@ -29,6 +30,7 @@
 
   &:hover {
     color: $dark-grey;
+    cursor: pointer;
   }
 }
 
