@@ -7,7 +7,7 @@ import {PolaroidComponent} from '../polaroid/polaroid.component';
     PolaroidComponent
   ],
   templateUrl: './gallery.component.html',
-  styleUrl: './gallery.component.scss'
+  styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
 
