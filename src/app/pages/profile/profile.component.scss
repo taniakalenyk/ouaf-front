@@ -6,3 +6,11 @@
   //flex-direction: row;
   min-height: 17.7rem;
 }
+
+@media (width <= 1330px) {
+  .profile-row {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 17.7rem;
+  }
+}
