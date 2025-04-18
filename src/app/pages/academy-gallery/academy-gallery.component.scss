@@ -1,8 +1,22 @@
-.gallery {
+@use '../../../styles/colors' as *;
+
+.photos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 100%;
 
+}
+
+.toggles {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: $background;
+  height: 3rem;
+}
+
+.gallery {
+  position: relative;
 }
