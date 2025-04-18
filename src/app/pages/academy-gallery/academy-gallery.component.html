@@ -1,64 +1,68 @@
 <div class="height-100">
-  <div class="f-column gap-2-25">
-    <div class="f-row gap-1-75">
-      <app-toggle (toggleEvent)="onPolaroid()" label="polaroid"></app-toggle>
+    <div class="f-column gap-2-25 gallery">
+        <div class="f-row gap-1-75 toggles">
+            <app-toggle (toggleEvent)="onPolaroid()" label="polaroid"></app-toggle>
 
-      <app-toggle (toggleEvent)="onZoom()" label="zoom"></app-toggle>
+            <app-toggle (toggleEvent)="onZoom()" label="zoom"></app-toggle>
+        </div>
+
+        <div [ngClass]="gap" class="f-row photos">
+            <app-polaroid [polaroidView]="fullSize"
+                          [zoomed]="zoom"
+                          description="description"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/2.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/3.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/4.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/5.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/6.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/7.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/8.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/9.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/10.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/11a.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/11.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/12.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/13.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/14.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/15.jpg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/16.jpeg"
+                          title="title"></app-polaroid>
+            <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
+                          imageUrl="/images/gallery/17.jpg"
+                          title="title"></app-polaroid>
+
+        </div>
     </div>
-
-    <div [ngClass]="gap" class="f-row gallery">
-      <app-polaroid [polaroidView]="fullSize"
-                    [zoomed]="zoom"
-                    description="description"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/2.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description" imageUrl="/images/gallery/3.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/4.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description" imageUrl="/images/gallery/5.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description" imageUrl="/images/gallery/6.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/7.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description" imageUrl="/images/gallery/8.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/9.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/10.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/11a.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/11.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/12.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/13.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/14.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/15.jpg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/16.jpeg"
-                    title="title"></app-polaroid>
-      <app-polaroid [polaroidView]="fullSize" [zoomed]="zoom" description="description"
-                    imageUrl="/images/gallery/17.jpg"
-                    title="title"></app-polaroid>
-
-    </div>
-  </div>
 </div>
