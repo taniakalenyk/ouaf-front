@@ -1,0 +1,28 @@
+@use 'colors' as *;
+
+.small-icon {
+  width: 1.13rem;
+  height: 1.13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit {
+  color: $light-grey;
+  width: 18px;
+  height: 18px;
+
+  &:hover {
+    color: $dark-grey;
+    cursor: pointer;
+  }
+}

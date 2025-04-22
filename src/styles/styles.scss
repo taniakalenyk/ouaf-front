@@ -9,6 +9,7 @@
 @use 'gaps' as *;
 @use 'paddings' as *;
 @use 'flex-properties' as *;
+@use 'icons' as *;
 
 @include generate-gaps();
 @include generate-paddings();

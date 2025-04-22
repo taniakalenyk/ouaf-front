@@ -2,11 +2,13 @@
 @use '../../../styles/flex-properties' as *;
 @use '../../../styles/paddings' as *;
 @use '../../../styles/gaps' as *;
+@use '../../../styles/icons' as *;
 
 .card {
   height: 100%;
   border-radius: 0 0.25rem 0.25rem 0;
   background-color: $off-white;
+  min-width: 42rem;
 }
 
 .profile-picture {
@@ -28,32 +30,32 @@
   }
 }
 
-.small-icon {
-  width: 18px;
-  height: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon-wrapper {
-  width: 25px;
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.edit {
-  color: $light-grey;
-  width: 18px;
-  height: 18px;
-
-  &:hover {
-    color: $dark-grey;
-    cursor: pointer;
-  }
-}
+//.small-icon {
+//  width: 18px;
+//  height: 18px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+//
+//.icon-wrapper {
+//  width: 25px;
+//  height: 25px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+//
+//.edit {
+//  color: $light-grey;
+//  width: 18px;
+//  height: 18px;
+//
+//  &:hover {
+//    color: $dark-grey;
+//    cursor: pointer;
+//  }
+//}
 
 .border-card-right {
   border-radius: 0 0.25rem 0.25rem 0;
