@@ -1,11 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-dog-card',
-  imports: [
-    RouterLink
-  ],
+  imports: [],
   templateUrl: './dog-card.component.html',
   styleUrl: './dog-card.component.scss'
 })
