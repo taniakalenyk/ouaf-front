@@ -1,12 +1,12 @@
 <button [ngClass]="variant" [type]="type">
-  <ng-container *ngIf="variant === 'google-button'">
+  @if (variant === 'google-button') {
     <img
       alt="Google icon"
       height="20"
       src="/icons/google.svg"
       width="20"
     />
-  </ng-container>
+  }
 
   <span [ngClass]="variant === 'google-button' ? 'body-text' : 'button-text'">
     {{ label }}

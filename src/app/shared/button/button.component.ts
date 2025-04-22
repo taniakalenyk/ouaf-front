@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgClass, NgIf} from '@angular/common';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-button',
-  imports: [NgClass, NgIf],
+  imports: [NgClass],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss'
 })

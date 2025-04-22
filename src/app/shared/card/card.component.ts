@@ -15,6 +15,6 @@ export class CardComponent {
   @Input() address: string = '150 Avenue de Strasbourg';
   @Input() city: string = '57070 Metz';
   @Input() phone: string = '+33 7 07 07 07 07';
-  @Input() birthday: string = '07 / 06 / 1992';
-  @Input() mention: string | null = null;
+  @Input() birthdate: string = '07 / 06 / 1992';
+
 }

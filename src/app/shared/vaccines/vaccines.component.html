@@ -2,7 +2,7 @@
 
   <!--    TOP TITLE    -->
   <div class="border-bottom gap-2 f-row space-between width-100 padding-bottom-1 border-bottom">
-    <div class="f-row gap-0-5">
+    <div class="f-row flex gap-0-5">
 
       <div class="icon-wrapper">
         <svg class="edit" fill="none" height="18" viewBox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
@@ -21,13 +21,46 @@
 
     </div>
 
-    <a class="button-text dark-grey" routerLink="/dog-profile">Mes Chiens</a>
+    <span class="button-text dark-grey">Vaccinations</span>
 
   </div>
-  <div class="dog-pictures">
-    <app-polaroid imageUrl="/images/gallery/baily.jpg" size="small"
-                  title="baily"></app-polaroid>
-    <app-polaroid imageUrl="/images/gallery/maybe.jpg" size="small"
-                  title="maybe"></app-polaroid>
+
+  <div class="vaccines">
+
+    <div class="vet-text f-row width-100 border-bottom padding-bottom-1 padding-x-1 gap-1-75">
+      <div class="flex-2">
+        Vaccin
+      </div>
+
+      <div class="flex-1">
+        Date
+      </div>
+
+      <div class="flex-1">
+        Rappel
+      </div>
+    </div>
+
+    <div class="height-100">
+
+      @for (vaccine of vaccines; track vaccine.name; let last = $last) {
+        <div
+          [class.border-bottom]="!last"
+          class="f-row padding-1 gap-1-75 card-text">
+          <div class="flex-2">
+            {{ vaccine.name }}
+          </div>
+
+          <div class="flex-1">
+            {{ vaccine.date }}
+          </div>
+
+          <div class="flex-1">
+            {{ vaccine.booster }}
+          </div>
+        </div>
+      }
+
+    </div>
   </div>
 </div>

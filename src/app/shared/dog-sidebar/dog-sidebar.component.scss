@@ -1,0 +1,38 @@
+@use '../../../styles/colors' as *;
+
+.sidebar {
+  background-color: $background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 3rem;
+}
+
+.sidebar-item {
+  writing-mode: vertical-rl;
+  //text-orientation: mixed;
+  transform: rotate(180deg);
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $black;
+    color: $off-white;
+  }
+
+  &:active {
+    background-color: $dark-grey;
+    color: $off-white;
+  }
+}
+
+.divider {
+  width: 70%;
+  height: 1px;
+  background-color: $light-grey;
+}
+
+.selected {
+  background-color: $black;
+  color: $off-white;
+}

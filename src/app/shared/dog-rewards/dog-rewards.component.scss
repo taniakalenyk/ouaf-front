@@ -2,15 +2,9 @@
 
 .card {
   display: flex;
-  width: 100%;
-  //min-height: 23rem;
   border-radius: 0.25rem;
   border: 1px solid $light-grey;
   background-color: $off-white;
-}
-
-.border-bottom {
-  border-bottom: 1px solid $light-grey;
 }
 
 .icon-wrapper {
@@ -32,10 +26,15 @@
   }
 }
 
-.gallery {
+.border-bottom {
+  border-bottom: 1px solid $light-grey;
+}
+
+.rewards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
   height: 100%;
+  width: 100%;
+  gap: 1.75rem;
+  justify-content: center;
 }

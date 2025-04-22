@@ -6,6 +6,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {AcademyGalleryComponent} from './pages/academy-gallery/academy-gallery.component';
+import {DogProfileComponent} from './pages/dog-profile/dog-profile.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'dog-profile',
+    component: DogProfileComponent
   },
   {
     path: 'signup',

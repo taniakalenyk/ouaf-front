@@ -1,0 +1,37 @@
+@use '../../../styles/colors' as *;
+
+.profile-row {
+  display: flex;
+  min-height: 17.7rem;
+}
+
+@media (width <= 1330px) {
+  .profile-row {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 17.7rem;
+  }
+}
+
+.dog-profile {
+  position: relative;
+}
+
+.back {
+  position: sticky;
+  top: 0;
+  background-color: $background;
+  height: 3.5rem;
+  width: 100vw;
+
+  & a {
+    width: 10rem;
+  }
+}
+
+
+.sidebar {
+  position: sticky;
+  top: 3.5rem;
+  flex: auto;
+}
