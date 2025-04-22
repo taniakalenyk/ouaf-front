@@ -1,0 +1,40 @@
+@use '../../../styles/colors' as *;
+
+.card {
+  display: flex;
+  border-radius: 0.25rem;
+  border: 1px solid $light-grey;
+  background-color: $off-white;
+}
+
+.icon-wrapper {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit {
+  color: $light-grey;
+  width: 18px;
+  height: 18px;
+
+  &:hover {
+    color: $dark-grey;
+    cursor: pointer;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $light-grey;
+}
+
+.veterinarian {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  gap: 1.75rem;
+  justify-content: center;
+}
