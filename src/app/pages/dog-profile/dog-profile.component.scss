@@ -2,8 +2,6 @@
 
 .profile-row {
   display: flex;
-  //flex-wrap: wrap;
-  //flex-direction: row;
   min-height: 17.7rem;
 }
 
@@ -17,22 +15,23 @@
 
 .dog-profile {
   position: relative;
+}
 
+.back {
+  position: sticky;
+  top: 0;
+  background-color: $background;
+  height: 3.5rem;
+  width: 100vw;
 
-  & .back {
-    position: sticky;
-    top: 0;
-    z-index: 3;
-    background-color: $background;
-    height: 3.5rem;
-
-    & a {
-      width: 10rem;
-    }
+  & a {
+    width: 10rem;
   }
 }
+
 
 .sidebar {
   position: sticky;
   top: 3.5rem;
+  flex: auto;
 }
