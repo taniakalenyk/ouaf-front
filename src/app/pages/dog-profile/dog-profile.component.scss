@@ -15,3 +15,24 @@
   }
 }
 
+.dog-profile {
+  position: relative;
+
+
+  & .back {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: $background;
+    height: 3.5rem;
+
+    & a {
+      width: 10rem;
+    }
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 3.5rem;
+}
