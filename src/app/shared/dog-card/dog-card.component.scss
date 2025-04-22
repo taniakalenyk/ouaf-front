@@ -10,7 +10,7 @@
 }
 
 .profile-picture {
-  display: flex;
+  display: block;
   overflow: hidden;
   border-radius: 0.25rem 0 0 0.25rem;
   border-left: 1px solid $light-grey;
