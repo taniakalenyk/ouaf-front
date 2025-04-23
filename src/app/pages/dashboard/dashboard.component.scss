@@ -1,5 +1,10 @@
 @use '../../../styles/colors' as *;
 
+.dashboard {
+  display: flex;
+  justify-content: center;
+}
+
 .description {
   display: flex;
   flex-shrink: 2;
@@ -30,15 +35,17 @@
   background-color: $off-white;
 }
 
-//.next-class {
-//  //
-//  //display: flex;
-//  //flex: 1;
-//  //flex-direction: column;
-//  height: 100%;
-//}
+.border-bottom {
+  border-bottom: 1px solid $light-grey;
+  display: flex;
+  justify-content: flex-end;
+}
 
-.booked {
+.dashboard-half {
   height: calc(100vh - 11.4rem);
+}
 
+.available {
+  background-color: $dashboard-grey;
+  border-radius: 0.25rem;
 }
