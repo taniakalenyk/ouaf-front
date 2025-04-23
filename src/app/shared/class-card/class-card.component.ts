@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-class-card',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './class-card.component.scss'
 })
 export class ClassCardComponent {
+
 
 }
