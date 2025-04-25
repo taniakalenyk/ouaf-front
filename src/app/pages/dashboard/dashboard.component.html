@@ -45,15 +45,28 @@
     </div>
   </div>
 
-  <div class="gap-1-75 column column-6 align-items padding-y-1 dashboard-half available">
-    <div class="padding-x-1 width-100">
-      <div class="border-bottom gap-2 f-row width-100 padding-bottom-1 border-bottom">
+  <div class="gap-1 column column-6 align-items padding-y-1 dashboard-half available">
+    <div class="space-between row width-100 padding-x-1 available">
 
-        <span class="button-text off-white">Réussites</span>
+      <div class="calendar">
+        <app-datepicker/>
+      </div>
 
+      <div class="width-100 column gap-1">
+        <div class="border-bottom gap-2 f-row width-100 padding-bottom-1 border-bottom">
+          <span class="button-text off-white">RECHERCHE</span>
+        </div>
+        <div class="height-100 f-row align-items">
+          <div class="padding-left-1-75 column gap-1-25">
+            <app-checkbox label="MAYBE"></app-checkbox>
+            <app-checkbox label="BAILY"></app-checkbox>
+            <app-checkbox label="Cours disponibles"></app-checkbox>
+          </div>
+        </div>
       </div>
 
     </div>
+
     <div class="column gap-0-5 width-100 scroll padding-x-1">
       <app-class-card></app-class-card>
       <app-class-card></app-class-card>
