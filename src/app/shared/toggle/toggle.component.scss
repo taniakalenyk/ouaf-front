@@ -1,5 +1,43 @@
 @use '../../../styles/colors' as *;
 
+.toggle-switch-small {
+  position: relative;
+  display: inline-block;
+  width: 2.4rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.toggle-switch-handle-small {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: $off-white;
+  border-radius: 0.13rem;
+  box-shadow: 2px 2px 6px 0 rgba(138, 149, 158, 0.3);
+  transition: transform 0.3s ease-in-out,
+  box-shadow 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.toggle-switch-small input[type="checkbox"]:checked + .toggle-switch-background {
+  background-color: $accent-color;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.toggle-switch-small input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-switch-small input[type="checkbox"]:checked + .toggle-switch-background .toggle-switch-handle-small {
+  transform: translateX(1.15rem);
+  box-shadow: -2px 2px 6px 0 rgba(138, 149, 158, 0.3);
+  transition: transform 0.3s ease-in-out,
+  box-shadow 0.3s ease-in-out;
+}
+
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -39,8 +77,9 @@
   box-shadow 0.3s ease-in-out;
 }
 
+
 .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background .toggle-switch-handle {
-  transform: translateX(1.5rem);
+  transform: translateX(1.25rem);
   box-shadow: -2px 2px 6px 0 rgba(138, 149, 158, 0.3);
   transition: transform 0.3s ease-in-out,
   box-shadow 0.3s ease-in-out;

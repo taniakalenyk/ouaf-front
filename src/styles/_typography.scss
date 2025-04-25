@@ -99,6 +99,27 @@ $font-3xl: 2.5rem; // 40px
   text-transform: uppercase;
 }
 
+/* Day on the Dashboard */
+.day-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 9.75rem;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.month-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 /* Small italic - for notes on profile */
 .small-italic {
   font-family: "Nunito Sans", sans-serif;

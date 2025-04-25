@@ -1,0 +1,80 @@
+<div class="row gap-2-5 dashboard">
+  <div class="gap-1-75 column column-6 align-items padding-top-1 dashboard-half">
+    <div class="gap-1-75 padding-x-1 column">
+      <div class="width-100">
+        <div class="row gap-1">
+          <p class="day-text">17</p>
+          <div>
+            <p class="accent-color month-text">SEPTEMBRE</p>
+            <div class="description">
+              <div class=" description-text dark-grey small-italic shadow">
+                Une journée sans poils sur vos vêtements est une journée sans câlins.
+              </div>
+              <div>
+                <svg class="accent-color" fill="none" height="13" viewBox="0 0 18 13" width="18"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M3.95155 4.72727C6.124 4.72727 7.88511 6.57918 7.88511 8.86364C7.88511 11.1481 6.124 13 3.95155 13C1.7791 13 0.017982 11.1481 0.017982 8.86364L0 8.27273C0 3.70382 3.52223 0 7.86713 0V2.36364C6.36563 2.36364 4.95517 2.97818 3.89311 4.09382C3.68856 4.30891 3.502 4.537 3.33454 4.77691C3.53571 4.74382 3.74138 4.72609 3.95042 4.72609L3.95155 4.72727ZM14.0664 4.72727C16.2389 4.72727 18 6.57918 18 8.86364C18 11.1481 16.2389 13 14.0664 13C11.894 13 10.1329 11.1481 10.1329 8.86364L10.1149 8.27273C10.1149 3.70382 13.6371 0 17.982 0V2.36364C16.4805 2.36364 15.0701 2.97818 14.008 4.09382C13.8034 4.30891 13.6169 4.537 13.4494 4.77691C13.6506 4.74382 13.8563 4.72609 14.0664 4.72609V4.72727Z"
+                    fill="currentColor"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-class-card></app-class-card>
+      </div>
+      <div class="padding-x-0-75 gap-0-5 row width-100 space-between wrap">
+        <div class="f-row gap-0-5">
+          <span class="black button-text">PROCHAINS</span>
+          <span class="accent-color button-text">COURS</span>
+        </div>
+        <div class="f-row gap-1-5">
+          <app-toggle label="MAYBE" size="small"></app-toggle>
+          <app-toggle label="BAILY" size="small"></app-toggle>
+        </div>
+      </div>
+    </div>
+    <div class="column gap-0-5 width-100 scroll padding-x-1">
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+    </div>
+  </div>
+
+  <div class="gap-1 column column-6 align-items padding-y-1 dashboard-half available">
+    <div class="space-between row width-100 padding-x-1 available">
+
+      <div class="calendar">
+        <app-datepicker/>
+      </div>
+
+      <div class="width-100 column gap-1">
+        <div class="border-bottom gap-2 f-row width-100 padding-bottom-1 border-bottom">
+          <span class="button-text off-white">RECHERCHE</span>
+        </div>
+        <div class="height-100 f-row align-items">
+          <div class="padding-left-1-75 column gap-1-25">
+            <app-checkbox label="MAYBE"></app-checkbox>
+            <app-checkbox label="BAILY"></app-checkbox>
+            <app-checkbox label="Cours disponibles"></app-checkbox>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column gap-0-5 width-100 scroll padding-x-1">
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+      <app-class-card></app-class-card>
+    </div>
+  </div>
+</div>

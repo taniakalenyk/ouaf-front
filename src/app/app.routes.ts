@@ -7,6 +7,7 @@ import {SignupComponent} from './pages/signup/signup.component';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {AcademyGalleryComponent} from './pages/academy-gallery/academy-gallery.component';
 import {DogProfileComponent} from './pages/dog-profile/dog-profile.component';
+import {DashboardComponent} from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
   {
     path: 'dog-profile',
     component: DogProfileComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
     path: 'signup',
