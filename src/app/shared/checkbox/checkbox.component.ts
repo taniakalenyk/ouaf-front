@@ -11,5 +11,5 @@ import {NgClass} from '@angular/common';
 })
 export class CheckboxComponent {
   @Input() label: string = '';
-  @Input() background: 'dark' | 'light' = 'light';
+  @Input() backgr: 'dark' | 'light' = 'light';
 }
