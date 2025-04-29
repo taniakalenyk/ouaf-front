@@ -11,6 +11,7 @@
 @use 'flex-properties' as *;
 @use 'icons' as *;
 @use 'datepicker' as *;
+@use 'margins' as *;
 
 @include generate-gaps();
 @include generate-paddings();

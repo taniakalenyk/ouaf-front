@@ -1,0 +1,41 @@
+$spacing-scale: (
+  "0-25": 0.25rem,
+  "0-5": 0.5rem,
+  "0-63": 0.63rem,
+  "0-75": 0.75rem,
+  "1": 1rem,
+  "1-5": 1.5rem,
+  "1-75": 1.75rem,
+  "2": 2rem,
+  "2-5": 2.5rem,
+  "3": 3rem,
+  "4": 4rem,
+);
+
+@mixin generate-margins {
+  @each $key, $value in $spacing-scale {
+    .margin-top-#{$key} {
+      margin-top: $value;
+    }
+    .margin-bottom-#{$key} {
+      margin-bottom: $value;
+    }
+    .margin-left-#{$key} {
+      margin-left: $value;
+    }
+    .margin-right-#{$key} {
+      margin-right: $value;
+    }
+    .margin-x-#{$key} {
+      margin-left: $value;
+      margin-right: $value;
+    }
+    .margin-y-#{$key} {
+      margin-top: $value;
+      margin-bottom: $value;
+    }
+    .margin-#{$key} {
+      margin: $value;
+    }
+  }
+}
