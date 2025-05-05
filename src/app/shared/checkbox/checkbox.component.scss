@@ -1,0 +1,54 @@
+@use '../../../styles/colors' as *;
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $off-white;
+  margin: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid $light-grey;
+  outline: none;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-radius: 0.13rem;
+  }
+
+  &:checked::before {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: $accent-color;
+  }
+
+  &:hover {
+    border-color: $dark-grey;
+    cursor: pointer;
+  }
+}
+
+
+.checkbox-wrapper {
+  display: flex;
+  cursor: pointer;
+  gap: 0.6rem;
+  align-items: center;
+
+  &:hover * {
+    color: $black;
+    border-color: $dark-grey;
+    cursor: pointer;
+  }
+}
+
+.light-label {
+  color: $off-white;
+}
+

@@ -1,0 +1,161 @@
+@use '@angular/material' as mat;
+@use 'colors' as *;
+
+/*      DATEPICKER STYLING      */
+:root {
+  @include mat.datepicker-overrides((
+    calendar-date-selected-state-text-color: $off-white,
+    calendar-date-selected-state-background-color: $accent-color,
+    calendar-date-today-selected-state-outline-color: $accent-color,
+    calendar-date-focus-state-background-color: $off-white,
+    calendar-period-button-text-color: $dark-grey,
+    calendar-period-button-icon-color: $dark-grey,
+    calendar-date-today-outline-color: $accent-color,
+  ));
+  --mat-sys-primary: $light-grey !important;
+  //--mat-sys-on-surface: $black !important;
+  --mat-sys-on-surface-variant: $light-grey !important;
+}
+
+//:root {
+//  @include mat.datepicker-overrides((
+//    calendar-date-selected-state-text-color: $off-white,
+//    calendar-date-selected-state-background-color: $accent-color,
+//    //    calendar-date-selected-disabled-state-background-color: blue,
+//    calendar-date-today-selected-state-outline-color: $accent-color,
+//    calendar-date-focus-state-background-color: $off-white, // previously selected
+//    //calendar-date-hover-state-background-color: $light-grey, // hover on number
+//    //toggle-active-state-icon-color: olive,
+//    //calendar-date-in-range-state-background-color: teal,
+//    //    calendar-date-in-comparison-range-state-background-color: teal,
+//    //    calendar-date-in-overlap-range-state-background-color: teal,
+//    //    calendar-date-in-overlap-range-selected-state-background-color: teal,
+//    //toggle-icon-color: #3a5b73,
+//    //    calendar-body-label-text-color: orange, // month before numbers
+//    calendar-period-button-text-color: $dark-grey, // top left name
+//    calendar-period-button-icon-color: $dark-grey, // triangle
+//    //calendar-navigation-button-icon-color: yellow,
+//    //    calendar-header-text-color: $dark-grey, // days color
+//    calendar-date-today-outline-color: $accent-color,
+//    //    calendar-date-today-disabled-state-outline-color: #170080,
+//    //    calendar-date-text-color: $black, // numbers color
+//    //    calendar-date-disabled-state-text-color: navy,
+//    //calendar-date-preview-state-outline-color: green,
+//    //range-input-separator-color: #0015ff,
+//    //    range-input-disabled-state-separator-color: lime,
+//    //    range-input-disabled-state-text-color: olive,
+//    //calendar-container-background-color: $off-white,
+//    //calendar-container-text-color: green,
+//  ));
+//  @include mat.button-color((
+//    active-state-layer-color: red,
+//    active-state-layer-opacity: 0.3,
+//  ));
+//}
+
+tbody > tr:first-child > td.mat-calendar-body-label {
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+tbody > tr:not([role="row"]) {
+  display: none;
+}
+
+.mat-mdc-icon-button {
+  background-color: $off-white !important;
+  fill: $dark-grey !important;
+  //color: inherit;
+}
+
+.mat-mdc-card {
+  border: 1px solid $light-grey !important;
+  border-radius: 0.25rem !important;
+  box-shadow: none !important;
+  background-color: $off-white !important;
+}
+
+
+.mat-calendar-controls {
+  margin: 2% calc(4.7142857143% - 16px) !important;
+  //margin: 5% calc(4.7142857143% - 16px) !important;
+}
+
+.mat-calendar-table-header th {
+  padding: 10px 0 9px 0 !important;
+}
+
+thead.mat-calendar-table-header {
+  //height: 32px !important;
+  //padding: 0 !important;
+
+  /*      CALENDAR DAYS NAME      */
+  & * {
+    font-weight: 400 !important;
+    font-size: 0.75rem !important;
+    font-family: "Nunito Sans", sans-serif !important;
+  }
+}
+
+//thead.mat-calendar-table-header > tr {
+//  padding: ;
+//}
+
+.mat-calendar-body-cell-content {
+  font-weight: 400 !important;
+  font-size: 0.8rem !important;
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+th.mat-calendar-table-header-divider {
+  display: none !important;
+}
+
+//.mat-calendar-table-header th {
+//  padding: 4px !important;
+//}
+
+//.mat-calendar-header {
+//  margin-top: 0;
+//  margin-bottom: 0;
+//}
+
+.mat-calendar-body-cell-content {
+  //color: $black !important; //text color
+}
+
+.mat-focus-indicator {
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  background-color: $off-white !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border-color: $accent-color !important;
+  color: $accent-color !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: $accent-color !important;
+  color: $off-white !important;
+}
+
+//.mat-calendar-body-selected.mat-calendar-body-today {
+//  box-shadow: inset 0 0 0 1px $accent-color !important;
+//}
+
+.mat-calendar-body-cell-content .mat-focus-indicator {
+  background-color: $off-white !important;
+}
+
+//.mat-mdc-button:not(:disabled) {
+//  color: $dark-grey !important; // top left text
+//  background-color: $off-white !important;
+//}
+
+.mat-mdc-button-persistent-ripple::before {
+  background-color: $black !important; // top hover
+}
+
+

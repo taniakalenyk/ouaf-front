@@ -10,6 +10,8 @@
 @use 'paddings' as *;
 @use 'flex-properties' as *;
 @use 'icons' as *;
+@use 'datepicker' as *;
+@use 'margins' as *;
 
 @include generate-gaps();
 @include generate-paddings();
@@ -51,3 +53,12 @@ img {
 .scroll {
   overflow-y: scroll;
 }
+
+//html, body {
+//  height: 100%;
+//}
+//
+//body {
+//  margin: 0;
+//  font-family: Roboto, "Helvetica Neue", sans-serif;
+//}
