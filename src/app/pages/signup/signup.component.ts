@@ -1,12 +1,14 @@
 import {Component} from '@angular/core';
 import {ButtonComponent} from '../../shared/button/button.component';
 import {RouterLink} from '@angular/router';
+import {CheckboxComponent} from "../../shared/checkbox/checkbox.component";
 
 @Component({
   selector: 'app-signup',
   imports: [
     ButtonComponent,
-    RouterLink
+    RouterLink,
+    CheckboxComponent
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
