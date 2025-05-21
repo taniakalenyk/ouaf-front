@@ -18,6 +18,10 @@
   border-radius: 0;
   border: 0;
   outline: none;
+
+  &::placeholder {
+    color: $light-grey;
+  }
 }
 
 .input {
@@ -26,12 +30,13 @@
   border: 1px solid $light-grey;
   outline: none;
   background-color: $off-white;
+  color: $black;
   height: 2.75rem;
 
   &:focus-within {
     border-color: $dark-grey;
     box-shadow: 0 0 0 0;
-    color: $off-white;
+    color: $black;
   }
 
   &:disabled {
@@ -40,7 +45,7 @@
   }
 
   &::placeholder {
-    color: $dark-grey;
+    color: $light-grey;
   }
 }
 

@@ -25,6 +25,7 @@ import {Component} from '@angular/core';
 import {ToggleComponent} from '../../shared/toggle/toggle.component';
 import {PolaroidComponent} from '../../shared/polaroid/polaroid.component';
 import {NgClass} from '@angular/common';
+import {FilepickerComponent} from '../../shared/filepicker/filepicker.component';
 
 @Component({
   selector: 'app-academy-gallery',
@@ -32,7 +33,8 @@ import {NgClass} from '@angular/common';
   imports: [
     ToggleComponent,
     PolaroidComponent,
-    NgClass
+    NgClass,
+    FilepickerComponent
   ],
   styleUrls: ['./academy-gallery.component.scss']
 })
@@ -40,6 +42,7 @@ export class AcademyGalleryComponent {
   fullSize: boolean = false;
   zoom: boolean = false;
   gap: string = 'gap-1-75';
+  photo: File | null = null;
 
   onPolaroid() {
     this.fullSize = !this.fullSize;
@@ -55,5 +58,9 @@ export class AcademyGalleryComponent {
     }
     console.log('Zoom', this.zoom);
     console.log('Gap', this.gap);
+  }
+
+  onFilePicked(pickedFile: File | null) {
+    this.photo = pickedFile;
   }
 }

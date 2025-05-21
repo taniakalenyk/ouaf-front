@@ -1,14 +1,14 @@
 <div class="row gap-2-5 dashboard">
   <div class="gap-1-75 column column-6 align-items padding-top-1 dashboard-half">
-    <div class="gap-1-75 padding-x-1 column">
+    <div class="gap-1-75 padding-x-1 column width-100">
       <div class="width-100">
         <div class="row gap-1">
           <p class="day-text">17</p>
-          <div>
+          <div class="width-100">
             <p class="accent-color month-text">SEPTEMBRE</p>
             <div class="description">
               <div class=" description-text dark-grey small-italic shadow">
-                Une journée sans poils sur vos vêtements est une journée sans câlins.
+                {{ quote?.quoteText || 'Cela ne marche pas comme je veux...' }}
               </div>
               <div>
                 <svg class="accent-color" fill="none" height="13" viewBox="0 0 18 13" width="18"

@@ -1,20 +1,85 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ButtonComponent} from '../../shared/button/button.component';
-import {RouterLink} from '@angular/router';
-import {CheckboxComponent} from "../../shared/checkbox/checkbox.component";
+import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {Router, RouterLink} from '@angular/router';
+import {NotificationService} from '../../services/notification.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-signup',
   imports: [
     ButtonComponent,
+    FormsModule,
+    ReactiveFormsModule,
     RouterLink,
-    CheckboxComponent
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
 
+
 export class SignupComponent {
+
+  http = inject(HttpClient);
+  formBuilder = inject(FormBuilder);
+  notification = inject(NotificationService);
+  router = inject(Router);
+
+  signUpForm = this.formBuilder.group({
+    firstName: ['toto', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    lastName: ['je suis', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    email: ['moi@toto.com', [Validators.required, Validators.email]],
+    password: ['12345', [Validators.required]]
+    // photoId: [''],
+    // phoneNumber: ['', [Validators.maxLength(13)]],
+    // address: ['', [Validators.minLength(2), Validators.maxLength(50)]],
+    // about: ['', [Validators.minLength(2), Validators.maxLength(300)]],
+    // birthdate: [''],
+    // city: ['', [Validators.minLength(2), Validators.maxLength(30)]],
+    // postcode: ['', [Validators.minLength(2), Validators.maxLength(10)]]
+  });
+
+
+  // constructor(private fb: FormBuilder, private http: HttpClient) {
+  //   this.ownerForm = this.fb.group({
+  //     firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+  //     lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     password: ['', [Validators.required]],
+  //     photoId: [''],
+  //     phoneNumber: ['', [Validators.maxLength(13)]],
+  //     address: ['', [Validators.minLength(2), Validators.maxLength(50)]],
+  //     about: ['', [Validators.minLength(2), Validators.maxLength(300)]],
+  //     birthdate: [''],
+  //     city: ['', [Validators.minLength(2), Validators.maxLength(30)]],
+  //     postcode: ['', [Validators.minLength(2), Validators.maxLength(10)]]
+  //   });
+  // }
+
+  onSubmit() {
+    if (this.signUpForm.valid) {
+
+      const owner: any = this.signUpForm.value;
+
+      console.log('Owner to create:', owner);
+
+      this.http.post<any>(environment.serverUrl + 'signup-owner', owner)
+        .subscribe({
+          next: create => {
+            console.log('Owner created:', create);
+
+            this.router.navigateByUrl("/login");
+            this.notification.show("Un lien de confirmation vous a été envoyé", "warning");
+          },
+          error: error => {
+            console.error('Error creating owner:', error);
+          }
+        });
+    } else {
+      console.log('Form is not valid');
+    }
+  }
 
   showPassword(field: 'password' | 'password-confirm'): void {
     const input = document.getElementById(field) as HTMLInputElement;

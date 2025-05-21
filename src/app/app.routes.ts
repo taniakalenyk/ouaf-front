@@ -8,6 +8,7 @@ import {ProfileComponent} from './pages/profile/profile.component';
 import {AcademyGalleryComponent} from './pages/academy-gallery/academy-gallery.component';
 import {DogProfileComponent} from './pages/dog-profile/dog-profile.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
+// import {EmailConfirmComponent} from './shared/email-confirm/email-confirm.component';
 
 export const routes: Routes = [
   {
@@ -52,6 +53,10 @@ export const routes: Routes = [
     component: NotFoundComponent,
     data: {background: 'not-found-image'}
   },
+  // {
+  //   path: 'email-confirm/:token',
+  //   component: EmailConfirmComponent,
+  // },
   {
     path: '',
     pathMatch: 'full',

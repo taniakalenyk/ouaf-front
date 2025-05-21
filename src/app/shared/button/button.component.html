@@ -1,4 +1,8 @@
-<button [ngClass]="variant" [type]="type">
+<button
+  (click)="handleClick()"
+  [ngClass]="variant"
+  [type]="type"
+>
   @if (variant === 'google-button') {
     <img
       alt="Google icon"

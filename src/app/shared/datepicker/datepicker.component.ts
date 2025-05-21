@@ -19,9 +19,9 @@ import localeFr from '@angular/common/locales/fr';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class Datepicker {
+export class DatepickerComponent {
   selected = model<Date | null>(null);
-  
+
   constructor(
     private dateAdapter: DateAdapter<Date>,
   ) {
