@@ -1,0 +1,24 @@
+@use '../../../styles/colors' as *;
+
+.filepicker {
+  cursor: pointer;
+}
+
+.icon-wrapper {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit {
+  color: $light-grey;
+  width: 18px;
+  height: 18px;
+
+  &:hover {
+    color: $dark-grey;
+    cursor: pointer;
+  }
+}
