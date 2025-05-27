@@ -7,6 +7,7 @@ export class AuthService {
 
   connecte = false
   role: string | null = null
+  id: number | null = null
 
   constructor() {
     const jwt = localStorage.getItem("jwt")
@@ -31,6 +32,7 @@ export class AuthService {
     const body = JSON.parse(jsonBody)
 
     this.role = body.role;
+    this.id = body.id;
 
     this.connecte = true;
   }
@@ -39,6 +41,7 @@ export class AuthService {
     localStorage.removeItem("jwt")
     this.connecte = false
     this.role = null
+    this.id = null
   }
 
 }

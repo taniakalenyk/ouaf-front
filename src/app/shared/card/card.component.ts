@@ -1,4 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Owner} from '../../models/owner.model';
+import {OwnerService} from '../../services/owner.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-card',
@@ -6,15 +9,28 @@ import {Component, Input} from '@angular/core';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent {
-  @Input() firstname: string = 'TETIANA';
-  @Input() lastname: string = 'LOMBARDI';
-  @Input() description: string = 'Heureuse propriétaire de Maybe et Baily, passionnée par les activités en plein air avec mes compagnons à quatre pattes. Heureuse propriétaire de Maybe et Baily, passionnée par les activités en plein air avec mes compagnons à quatre pattes.';
-  @Input() profilePicture: string = '/images/profile-picture.png';
-  @Input() email: string = 'tetiana.lombardi@ouaf.academy';
-  @Input() address: string = '150 Avenue de Strasbourg';
-  @Input() city: string = '57070 Metz';
-  @Input() phone: string = '+33 7 07 07 07 07';
-  @Input() birthdate: string = '07 / 06 / 1992';
 
+export class CardComponent implements OnInit {
+  owner!: Owner;
+
+  constructor(private ownerService: OwnerService, private authService: AuthService) {
+  }
+
+  ngOnInit(): void {
+    if (this.authService.id) {
+      console.log("Id we get from JWT : " + this.authService.id);
+      // this.ownerService.getCurrentOwner(this.authService.id).subscribe({
+      this.ownerService.getCurrentOwner(this.authService.id).subscribe({
+        next: (data) => {
+          this.owner = data;
+          console.log(this.owner);
+        },
+        error: (err) => {
+          console.error('Failed to load owner', err);
+        }
+      });
+    } else {
+      console.error('User ID not available');
+    }
+  }
 }

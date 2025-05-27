@@ -1,5 +1,7 @@
+import {Dog} from './dog.model';
+
 export interface Owner {
-  id?: number;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -11,4 +13,5 @@ export interface Owner {
   birthdate?: string;
   city?: string;
   postcode?: string;
+  dogs?: Dog[];
 }

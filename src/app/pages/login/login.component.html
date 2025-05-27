@@ -4,11 +4,12 @@
     <p class="bigger-body-text dark-grey">Veuillez entrer vos informations</p>
   </div>
 
-  <form class="f-column gap-1-25">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="f-column gap-1-25">
 
     <div class="f-column gap-0-5">
       <label class="body-text black" for="email">E-mail</label>
-      <input class="input body-text dark-grey" id="email" placeholder="Entrez votre adresse e-mail" type="email"/>
+      <input class="input body-text dark-grey" formControlName="email" id="email"
+             placeholder="Entrez votre adresse e-mail" type="email"/>
     </div>
 
 
@@ -16,7 +17,8 @@
     <div class="f-column space-between gap-0-5">
       <label class="body-text black gap-0-5" for="email">Mot de passe</label>
       <div class="f-row input">
-        <input class="body-text dark-grey password-field" id="password" placeholder="Saisissez le mot de passe"
+        <input class="body-text black password-field" formControlName="password" id="password"
+               placeholder="Saisissez le mot de passe"
                type="password"/>
         <svg (click)="showPassword('password')" class="eye-icon" fill="none" height="24" id="show-password"
              viewBox="0 0 24 24"

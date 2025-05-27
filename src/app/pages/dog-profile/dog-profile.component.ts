@@ -30,7 +30,7 @@ export class DogProfileComponent {
     const dogId = 1;
     this.http.get(`http://localhost:8080/api/dogs/${dogId}`).subscribe({
       next: data => this.dog = data,
-      error: err => console.error('Échec de la récupération des données du chien :', err)
+      error: err => console.error('Failed to load dog', err)
     });
   }
 }

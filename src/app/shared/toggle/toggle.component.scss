@@ -79,7 +79,7 @@
 
 
 .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background .toggle-switch-handle {
-  transform: translateX(1.25rem);
+  transform: translateX(1.5rem);
   box-shadow: -2px 2px 6px 0 rgba(138, 149, 158, 0.3);
   transition: transform 0.3s ease-in-out,
   box-shadow 0.3s ease-in-out;

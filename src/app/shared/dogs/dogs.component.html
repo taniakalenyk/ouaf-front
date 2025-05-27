@@ -25,9 +25,16 @@
 
   </div>
   <div class="dog-pictures">
-    <app-polaroid imageUrl="/images/gallery/baily.jpg" size="small"
-                  title="baily"></app-polaroid>
-    <app-polaroid imageUrl="/images/gallery/maybe.jpg" size="small"
-                  title="maybe"></app-polaroid>
+    @if (dogs.length > 0) {
+      @for (dog of dogs; track dog.dogId) {
+        <app-polaroid
+          [imageUrl]="dog.photoId ? '/images/gallery/' + dog.photoId : '/images/profile-picture.png'"
+          size="small"
+          [title]="dog.name">
+        </app-polaroid>
+      }
+    } @else {
+      <p class="small-italic dark-grey center">Vous n'avez pas renseigné les informations sur vos chiens.</p>
+    }
   </div>
 </div>
