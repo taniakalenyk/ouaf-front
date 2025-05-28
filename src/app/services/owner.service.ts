@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Owner} from '../models/owner.model';
@@ -8,8 +8,7 @@ import {Owner} from '../models/owner.model';
 })
 export class OwnerService {
 
-  constructor(private http: HttpClient) {
-  }
+  http = inject(HttpClient)
 
   // getCurrentOwner(): number | null {
   //   const jwt = localStorage.getItem("jwt");

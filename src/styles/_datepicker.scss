@@ -3,6 +3,10 @@
 
 /*      DATEPICKER STYLING      */
 :root {
+  --mat-sys-primary: $light-grey !important;
+  //--mat-sys-on-surface: $black !important;
+  --mat-sys-on-surface-variant: $light-grey !important;
+
   @include mat.datepicker-overrides((
     calendar-date-selected-state-text-color: $off-white,
     calendar-date-selected-state-background-color: $accent-color,
@@ -12,9 +16,6 @@
     calendar-period-button-icon-color: $dark-grey,
     calendar-date-today-outline-color: $accent-color,
   ));
-  --mat-sys-primary: $light-grey !important;
-  //--mat-sys-on-surface: $black !important;
-  --mat-sys-on-surface-variant: $light-grey !important;
 }
 
 //:root {
