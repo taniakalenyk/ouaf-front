@@ -1,4 +1,4 @@
-<div class="padding-1-75 gap-2 card height-100 f-column width-100 shadow">
+<div class="padding-x-1-75 padding-top-1-75 padding-bottom-0-5 gap-2 card height-100 f-column width-100 shadow">
 
   <!--    TOP TITLE    -->
   <div class="border-bottom gap-2 f-row space-between width-100 padding-bottom-1 border-bottom">
@@ -21,20 +21,27 @@
 
     </div>
 
-    <a class="button-text dark-grey" routerLink="/dog-profile">Mes Chiens</a>
+    @if (dogs.length > 0) {
+      <a class="button-text dark-grey" routerLink="/dog-profile">Mes Chiens</a>
+    } @else {
+      <span class="button-text dark-grey">Mes Chiens</span>
+    }
   </div>
 
   <div class="dog-pictures">
     @if (dogs.length > 0) {
       @for (dog of dogs; track dog.dogId) {
-        <app-polaroid
-          [imageUrl]="dog.photoId ? '/images/gallery/' + dog.photoId : '/images/profile-picture.png'"
-          size="small"
-          [title]="dog.name">
-        </app-polaroid>
+        <div (click)="onClicked(dog)">
+          <app-polaroid
+            [imageUrl]="dog.photoId ? '/images/gallery/' + dog.photoId : '/images/profile-picture.png'"
+            size="small"
+            [title]="dog.name">
+          </app-polaroid>
+        </div>
       }
     } @else {
-      <p class="small-italic dark-grey center">Vous n'avez pas renseigné les informations sur vos chiens.</p>
+      <p class="small-italic dark-grey center padding-x-2 padding-bottom-2">Vous n'avez pas encore renseigné les
+        informations sur vos chiens.</p>
     }
   </div>
 </div>

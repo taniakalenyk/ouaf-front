@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class AuthService {
 
-  connecte = false
+  connected = false
   role: string | null = null
   id: number | null = null
 
@@ -33,13 +33,12 @@ export class AuthService {
 
     this.role = body.role;
     this.id = body.id;
-
-    this.connecte = true;
+    this.connected = true;
   }
 
   logout() {
     localStorage.removeItem("jwt")
-    this.connecte = false
+    this.connected = false
     this.role = null
     this.id = null
   }

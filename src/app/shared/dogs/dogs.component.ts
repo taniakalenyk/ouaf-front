@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PolaroidComponent} from '../polaroid/polaroid.component';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {Dog} from '../../models/dog.model';
 
 @Component({
@@ -18,6 +18,19 @@ import {Dog} from '../../models/dog.model';
 
 export class DogsComponent {
   @Input() dogs: Dog[] = [];
+
+  router = inject(Router);
+
+  onClicked(dog: Dog) {
+    if (dog.dogId) {
+      this.router.navigateByUrl(`/dog-profile/${dog.dogId}`);
+    }
+  }
+
+  ngOnInit() {
+    // Sort dogs by dogId
+    this.dogs.sort((a, b) => (a.dogId ?? 0) - (b.dogId ?? 0));
+  }
 
 // export class DogsComponent implements OnInit {
 //

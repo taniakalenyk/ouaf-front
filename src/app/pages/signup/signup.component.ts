@@ -27,9 +27,9 @@ export class SignupComponent {
   router = inject(Router);
 
   signUpForm = this.formBuilder.group({
-    firstName: ['toto', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-    lastName: ['je suis', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-    email: ['moi@toto.com', [Validators.required, Validators.email]],
+    firstName: ['user', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    lastName: ['user', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    email: ['user@ouaf.academy', [Validators.required, Validators.email]],
     password: ['12345', [Validators.required]]
     // photoId: [''],
     // phoneNumber: ['', [Validators.maxLength(13)]],

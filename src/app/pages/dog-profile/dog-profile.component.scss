@@ -1,11 +1,14 @@
 @use '../../../styles/colors' as *;
+@use '../../../styles/screens' as *;
+@use '../../../styles/flex-properties' as *;
 
 .profile-row {
   display: flex;
   min-height: 17.7rem;
+  padding-right: 0.4rem;
 }
 
-@media (width <= 1330px) {
+@media (width <= $screen-xl) {
   .profile-row {
     display: flex;
     flex-wrap: wrap;
@@ -23,6 +26,7 @@
   background-color: $background;
   height: 3rem;
   width: 100%;
+  z-index: 3;
 
   & a {
     width: 10rem;
@@ -34,4 +38,5 @@
   position: sticky;
   top: 3.5rem;
   flex: auto;
+  max-width: fit-content;
 }

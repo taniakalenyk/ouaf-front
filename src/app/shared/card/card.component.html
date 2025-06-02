@@ -12,7 +12,7 @@
     <div class="border-card-right f-column space-between width-100 padding-1-75 gap-2 height-100">
 
       <!--    TOP NAME    -->
-      <div class="f-row space-between padding-bottom-1 border-bottom">
+      <div class="f-row space-between padding-bottom-1 border-bottom gap-1">
         <div class="f-row gap-0-5">
           <span class="button-text black">{{ owner.lastName }}</span>
           <span class="button-text accent-color">{{ owner.firstName }}</span>
@@ -68,7 +68,7 @@
               </svg>
             </div>
 
-            <span class="dark-grey">{{ owner.birthdate }}</span>
+            <span class="dark-grey">{{ owner.birthdate | date:'dd / MM / yyyy' }}</span>
           </div>
 
           <!--          ADDRESS         -->
@@ -83,7 +83,7 @@
 
             <div class="f-column">
               <span>{{ owner.address }}</span>
-              <p>{{ owner.city }} {{ owner.postcode }}</p>
+              <p>{{ owner.postcode }} {{ owner.city }}</p>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 @use 'colors' as *;
 @use 'screens' as *;
+@use 'paddings' as *;
 
 .main-container {
   width: 100vw;
@@ -20,9 +21,12 @@
   display: flex;
   flex-direction: column;
   //justify-content: center;
-  padding: 0 6.88rem 0 6.88rem;
   overflow-y: scroll;
   //min-height: 0;
   flex: 1 1 auto;
   //align-items: flex-start;
+  //padding: 0 6.88rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  @include responsive-x-padding;
 }

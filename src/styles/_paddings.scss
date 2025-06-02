@@ -1,3 +1,36 @@
+@use '../styles/screens' as *;
+
+
+//@mixin responsive-x-padding {
+//  padding-left: 6.88rem;
+//  padding-right: 6.88rem;
+//
+//  @media (width <= $screen-xl) {
+//    padding-left: 4rem;
+//    padding-right: 4rem;
+//  }
+//
+//
+//  @media (width <= $screen-lg) {
+//    padding-left: 2rem;
+//    padding-right: 2rem;
+//  }
+//
+//
+//  @media (width <= $screen-md) {
+//    padding-left: 1.75rem;
+//    padding-right: 1.75rem;
+//  }
+//}
+
+
+@mixin responsive-x-padding {
+  // Using clamp(min, preferred, max)
+  padding-left: clamp(1rem, 1.75rem + 1vw, 6.88rem);
+  padding-right: clamp(1rem, 1.75rem + 1vw, 6.88rem);
+}
+
+
 $spacing-scale: (
   "0-25": 0.25rem,
   "0-5": 0.5rem,

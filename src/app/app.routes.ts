@@ -26,9 +26,15 @@ export const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'dog-profile',
+    path: 'dog-profile', // TODO delete it once debugged
     component: DogProfileComponent
   },
+
+  {
+    path: 'dog-profile/:id',
+    component: DogProfileComponent
+  },
+
   {
     path: 'dashboard',
     component: DashboardComponent,

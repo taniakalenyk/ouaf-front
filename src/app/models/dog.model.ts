@@ -9,6 +9,7 @@ export interface Dog {
   weight: number | null;
   notes: string | null;
   registrationDate: string;
+  sterilized: boolean;
 
   // enrollments: Enrollment[];
 

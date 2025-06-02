@@ -1,7 +1,7 @@
-<div class="f-column dog-profile padding-top-1">
+<div class="f-column dog-profile">
   <div class="back">
     <a aria-label="Vers mon profil"
-       class="black-hover dark-grey body-text gap-1 f-row padding-left-1 padding-bottom-1"
+       class="black-hover dark-grey body-text gap-1 f-row padding-left-1 padding-bottom-1 padding-top-0-5"
        routerLink="/profile">
       <svg fill="none" height="12" viewBox="0 0 10 12" width="10" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -14,12 +14,16 @@
 
 
   <div class="row gap-1">
-    <app-dog-sidebar class="sidebar height-100"></app-dog-sidebar>
+    <app-dog-sidebar (dogSelected)="onDogSelected($event)" [dogs]="dogs"
+                     [selectedDog]="selectedDog"
+                     class="sidebar height-100"></app-dog-sidebar>
 
-    <div class="f-column gap-1-75">
+    <div class="f-column gap-1-75 width-100">
       <div class="profile-row gap-1-75 width-100">
-        <app-dog-card class="flex-2"></app-dog-card>
-        <app-dog-rewards class="flex-1"></app-dog-rewards>
+        @if (selectedDog) {
+          <app-dog-card [dog]="selectedDog" class="flex-2"></app-dog-card>
+          <app-dog-rewards class="flex-1"></app-dog-rewards>
+        }
       </div>
 
       <div class="profile-row gap-1-75 width-100">

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Dog} from '../../models/dog.model';
 
 @Component({
   selector: 'app-dog-rewards',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './dog-rewards.component.scss'
 })
 export class DogRewardsComponent {
+  @Input() dog!: Dog;
 
 }

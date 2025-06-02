@@ -1,7 +1,7 @@
 <div class="height-100 width-100 f-column gap-1-75 padding-top-1">
   @let owner = owner$ | async;
   @if (owner) {
-    <div class="profile-row gap-1-75 width-100">
+    <div class="profile-row gap-1-75">
       <app-card [owner]="owner" class="flex-2 profile-row-card"></app-card>
       <app-dogs class="flex-1" [dogs]="owner.dogs || []"></app-dogs>
     </div>
@@ -9,5 +9,3 @@
     <!--    <app-gallery [dogs]="owner.dogs"></app-gallery>-->
   }
 </div>
-
-

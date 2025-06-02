@@ -1,5 +1,6 @@
 @use '../../../styles/colors' as *;
 @use '../../../styles/screens' as *;
+@use '../../../styles/paddings' as *;
 
 footer {
   //background-color: $black;
@@ -51,5 +52,8 @@ footer {
   justify-content: space-between;
   align-items: center;
   //padding: 1rem 6.88rem 2.25rem 6.88rem;
-  padding: 1rem 6.88rem 1rem 6.88rem;
+  padding-top: 1rem;
+  padding-bottom: 2.25rem;
+  @include responsive-x-padding
+
 }

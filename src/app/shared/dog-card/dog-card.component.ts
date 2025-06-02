@@ -1,39 +1,74 @@
 import {Component, Input} from '@angular/core';
+import {Dog} from '../../models/dog.model';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-dog-card',
-  imports: [],
+  imports: [
+    DatePipe
+  ],
   templateUrl: './dog-card.component.html',
   styleUrl: './dog-card.component.scss'
 })
 export class DogCardComponent {
-  @Input() name: string = 'BAILY';
-  @Input() description: string = 'Je n’ai pas de maladies ou allergies. J’aime jouer, courir, manger et embêter mon ami chat';
-  @Input() profilePicture: string = '/images/baily.jpg';
-  @Input() breed: string = 'Cocker Spaniel';
-  @Input() gender: boolean = true; // Female if true
-  @Input() birthdate: string = '01 / 01 / 2025';
-  @Input() weight: string = '10 kg';
-  @Input() sterilized: boolean = false;
+  @Input() dog!: Dog;
 
-  age = 0;
-
-  ngOnInit(): void {
-    this.age = this.calculateAge(this.birthdate);
+  get profilePicture(): string | null {
+    return this.dog?.photoId ? `/images/gallery/${this.dog.photoId}` : null;
   }
 
-  calculateAge(dateString: string): number {
-    const birthDate = new Date(dateString);
+  get age(): string {
+    if (!this.dog.birthDate) return '';
+
+    const birth = new Date(this.dog.birthDate);
     const today = new Date();
 
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
+    let years = today.getFullYear() - birth.getFullYear();
+    let months = today.getMonth() - birth.getMonth();
+    let days = today.getDate() - birth.getDate();
 
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
+    // Adjust months and years if necessary
+    if (days < 0) {
+      months -= 1;
+      days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+    }
+    if (months < 0) {
+      years -= 1;
+      months += 12;
     }
 
-    return age;
+    if (years > 0) {
+      return `${years} an${years > 1 ? 's' : ''}${months > 0 ? ` et ${months} mois` : ''}`;
+    } else if (months > 0) {
+      return `${months} mois`;
+    } else {
+      return `${days} jour${days > 1 ? 's' : ''}`;
+    }
   }
 
+  get breed(): string {
+    const primary = this.dog.primaryBreed?.breedName;
+    const secondary = this.dog.secondaryBreed?.breedName;
+
+    if (!primary) return '';
+    if (secondary && secondary !== primary) {
+      return `${primary}\n+ ${secondary}`;
+    }
+    return primary;
+  }
 }
+
+
+// calculateAge(dateString: string): number {
+//   const birthDate = new Date(dateString);
+//   const today = new Date();
+//
+//   let age = today.getFullYear() - birthDate.getFullYear();
+//   const m = today.getMonth() - birthDate.getMonth();
+//
+//   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+//     age--;
+//   }
+//
+//   return age;
+// }

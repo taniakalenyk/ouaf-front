@@ -2,14 +2,19 @@
 @use '../../../styles/flex-properties' as *;
 @use '../../../styles/paddings' as *;
 @use '../../../styles/gaps' as *;
+@use '../../../styles/screens' as *;
 
 .card {
   display: flex;
-  //min-width: 24.25rem;
+  //max-width: 29.5rem;
+  height: 100%;
   border-radius: 0.25rem;
   border: 1px solid $light-grey;
   background-color: $off-white;
+  //overflow: hidden;
+  //justify-content: center;
 }
+
 
 .border-bottom {
   border-bottom: 1px solid $light-grey;
@@ -41,5 +46,35 @@
   height: 100%;
   width: 100%;
   gap: 1.75rem;
+  min-width: 11.25rem;
   justify-content: center;
+  //overflow-x: scroll;
+  padding: 0.5rem;
 }
+
+//@media (width <= $screen-xl) {
+//  .card {
+//    display: flex;
+//    height: 100%;
+//    min-height: 17.7rem;
+//    max-width: 100%;
+//    border-radius: 0.25rem;
+//    border: 1px solid $light-grey;
+//    background-color: $off-white;
+//    overflow: hidden;
+//    justify-content: center;
+//  }
+//}
+
+//@media (width <= $screen-xxl) {
+//  .dog-pictures {
+//    display: flex;
+//    flex-direction: row;
+//    height: 100%;
+//    width: 100%;
+//    gap: 1rem;
+//    min-width: 11.25rem;
+//    //overflow-x: scroll;
+//    padding: 0.5rem;
+//  }
+//}
