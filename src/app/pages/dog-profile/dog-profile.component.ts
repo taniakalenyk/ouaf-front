@@ -69,7 +69,7 @@ import {VeterinarianComponent} from '../../shared/veterinarian/veterinarian.comp
 import {DogSidebarComponent} from '../../shared/dog-sidebar/dog-sidebar.component';
 import {Dog} from '../../models/dog.model';
 import {DogService} from '../../services/dog.service';
-import {OwnerService} from '../../services/owner.service';
+import {OwnerService} from '../../services/users/owner.service';
 import {CommonModule} from '@angular/common';
 import {AuthService} from '../../services/auth.service';
 import {Owner} from '../../models/owner.model';

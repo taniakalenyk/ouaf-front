@@ -28,7 +28,9 @@
 
       <div class="profile-row gap-1-75 width-100">
         <app-vaccines class="flex-2"></app-vaccines>
-        <app-veterinarian class="flex-1"></app-veterinarian>
+        @if (selectedDog) {
+          <app-veterinarian [dog]="selectedDog" class="flex-1"></app-veterinarian>
+        }
       </div>
 
     </div>

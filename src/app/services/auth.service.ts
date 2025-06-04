@@ -1,19 +1,38 @@
 import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  connected = false
-  role: string | null = null
-  id: number | null = null
+  private connectedSubject = new BehaviorSubject<boolean>(false);
+  connected$ = this.connectedSubject.asObservable();
+  private roleSubject = new BehaviorSubject<string | null>(null);
+  role$ = this.roleSubject.asObservable();
+  private idSubject = new BehaviorSubject<number | null>(null);
+  id$ = this.idSubject.asObservable();
 
-  constructor() {
+
+  constructor(private router: Router) {
     const jwt = localStorage.getItem("jwt")
     if (jwt != null) {
       this.decodeJwt(jwt)
     }
+  }
+
+  // Getter properties for backward compatibility
+  get connected(): boolean {
+    return this.connectedSubject.value;
+  }
+
+  get role(): string | null {
+    return this.roleSubject.value;
+  }
+
+  get id(): number | null {
+    return this.idSubject.value;
   }
 
   decodeJwt(jwt: string) {
@@ -31,16 +50,17 @@ export class AuthService {
     // we convert the json into a js object
     const body = JSON.parse(jsonBody)
 
-    this.role = body.role;
-    this.id = body.id;
-    this.connected = true;
+    this.roleSubject.next(body.role);
+    this.idSubject.next(body.id);
+    this.connectedSubject.next(true);
   }
 
   logout() {
-    localStorage.removeItem("jwt")
-    this.connected = false
-    this.role = null
-    this.id = null
+    localStorage.removeItem("jwt");
+    this.connectedSubject.next(false);
+    this.roleSubject.next(null);
+    this.idSubject.next(null);
+    this.router.navigate(['/logout']);
   }
 
 }

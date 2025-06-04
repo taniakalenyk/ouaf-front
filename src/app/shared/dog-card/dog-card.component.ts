@@ -13,9 +13,9 @@ import {DatePipe} from '@angular/common';
 export class DogCardComponent {
   @Input() dog!: Dog;
 
-  get profilePicture(): string | null {
-    return this.dog?.photoId ? `/images/gallery/${this.dog.photoId}` : null;
-  }
+  // get profilePicture(): string | null {
+  //   return this.dog?.photoId ? `/images/gallery/${this.dog.photoId}` : null;
+  // }
 
   get age(): string {
     if (!this.dog.birthDate) return '';
@@ -26,8 +26,7 @@ export class DogCardComponent {
     let years = today.getFullYear() - birth.getFullYear();
     let months = today.getMonth() - birth.getMonth();
     let days = today.getDate() - birth.getDate();
-
-    // Adjust months and years if necessary
+    
     if (days < 0) {
       months -= 1;
       days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();

@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Owner} from '../../models/owner.model';
 import {CommonModule} from '@angular/common';
+import {join} from '@angular/compiler-cli';
 
 @Component({
   selector: 'app-card',
@@ -34,4 +35,5 @@ export class CardComponent {
   //     console.error('User ID not available');
   //   }
   // }
+  protected readonly join = join;
 }

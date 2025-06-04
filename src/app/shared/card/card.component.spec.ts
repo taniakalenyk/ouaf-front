@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CardComponent } from './card.component';
-import { OwnerService } from '../../services/owner.service';
-import { AuthService } from '../../services/auth.service';
-import { of } from 'rxjs';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {CardComponent} from './card.component';
+import {OwnerService} from '../../services/users/owner.service';
+import {AuthService} from '../../services/auth.service';
+import {of} from 'rxjs';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -12,18 +12,18 @@ describe('CardComponent', () => {
 
   beforeEach(async () => {
     ownerServiceMock = jasmine.createSpyObj('OwnerService', ['getCurrentOwner']);
-    ownerServiceMock.getCurrentOwner.and.returnValue(of({ id: 1, name: 'Test Owner' }));
+    ownerServiceMock.getCurrentOwner.and.returnValue(of({id: 1, name: 'Test Owner'}));
 
-    authServiceMock = jasmine.createSpyObj('AuthService', [], { id: 1 });
+    authServiceMock = jasmine.createSpyObj('AuthService', [], {id: 1});
 
     await TestBed.configureTestingModule({
       imports: [CardComponent],
       providers: [
-        { provide: OwnerService, useValue: ownerServiceMock },
-        { provide: AuthService, useValue: authServiceMock }
+        {provide: OwnerService, useValue: ownerServiceMock},
+        {provide: AuthService, useValue: authServiceMock}
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;

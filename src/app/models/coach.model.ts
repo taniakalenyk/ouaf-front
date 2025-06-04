@@ -1,12 +1,10 @@
-import {Dog} from './dog.model';
 import {User} from './user.model';
 
-export interface Owner extends User {
+export interface Coach extends User {
   phoneNumber?: string;
   address?: string;
   about?: string;
   birthdate?: string;
   city?: string;
   postcode?: string;
-  dogs?: Dog[];
 }

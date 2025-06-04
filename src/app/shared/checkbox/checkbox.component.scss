@@ -44,7 +44,7 @@ input[type="checkbox"] {
   align-items: center;
 
   &:hover * {
-    color: $black;
+    color: $light-grey;
     border-color: $dark-grey;
     cursor: pointer;
   }

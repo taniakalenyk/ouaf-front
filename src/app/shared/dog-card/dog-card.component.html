@@ -1,6 +1,7 @@
 <div class="f-row card shadow width-100">
   <div class="profile-picture">
-    <img [src]="profilePicture || '/images/profile-picture.png'" alt="Profile picture"/>
+    <img [src]="dog.photoId ? '/images/gallery/' + dog.photoId : '/images/profile-picture.png'"
+         alt="Dog profile picture"/>
   </div>
 
   <div class="border-card-right f-column space-between width-100 padding-1-75 gap-2 height-100">

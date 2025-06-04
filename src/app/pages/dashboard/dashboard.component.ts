@@ -18,12 +18,22 @@ interface Quote {
     DatepickerComponent
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   quote: Quote | undefined;
+  day: number;
+  month: number;
+  formattedDay: string;
+  formattedMonth: string;
 
   constructor(private http: HttpClient) {
+    const now = new Date();
+    this.day = now.getDate();
+    this.month = now.getMonth() + 1;
+
+    this.formattedDay = String(this.day).padStart(2, '0');
+    this.formattedMonth = this.getMonthName(this.month);
   }
 
   ngOnInit(): void {
@@ -31,5 +41,13 @@ export class DashboardComponent implements OnInit {
       next: data => this.quote = data,
       error: err => console.error('Échec de la récupération de la citation :', err)
     });
+  }
+
+  private getMonthName(month: number): string {
+    const monthNames = [
+      'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+      'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+    ];
+    return monthNames[month - 1];
   }
 }

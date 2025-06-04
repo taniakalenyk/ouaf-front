@@ -3,9 +3,9 @@
     <div class="gap-1-75 padding-x-1 column width-100">
       <div class="width-100">
         <div class="row gap-1">
-          <p class="day-text">17</p>
+          <p class="day-text">{{ formattedDay }}</p>
           <div class="width-100">
-            <p class="accent-color month-text">SEPTEMBRE</p>
+            <p class="accent-color month-text">{{ formattedMonth }}</p>
             <div class="description">
               <div class=" description-text dark-grey small-italic shadow">
                 {{ quote?.quoteText || 'Cela ne fonctionne pas comme je veux...' }}

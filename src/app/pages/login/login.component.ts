@@ -43,7 +43,7 @@ export class LoginComponent {
         {responseType: "text"})
         .subscribe({
           next: jwt => {
-            this.router.navigateByUrl("/profile");
+            this.router.navigateByUrl("/dashboard");
             this.auth.decodeJwt(jwt)
           },
           error: e => {
