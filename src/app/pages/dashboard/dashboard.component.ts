@@ -4,6 +4,9 @@ import {ToggleComponent} from '../../shared/toggle/toggle.component';
 import {CheckboxComponent} from '../../shared/checkbox/checkbox.component';
 import {DatepickerComponent} from '../../shared/datepicker/datepicker.component';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {User} from '../../models/user.model';
+import {UserService} from '../../services/users/user.service';
 
 interface Quote {
   quoteText: string;
@@ -26,14 +29,16 @@ export class DashboardComponent implements OnInit {
   month: number;
   formattedDay: string;
   formattedMonth: string;
+  user$: Observable<User>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     const now = new Date();
     this.day = now.getDate();
     this.month = now.getMonth() + 1;
 
     this.formattedDay = String(this.day).padStart(2, '0');
     this.formattedMonth = this.getMonthName(this.month);
+    this.user$ = this.userService.getCurrentUser();
   }
 
   ngOnInit(): void {
