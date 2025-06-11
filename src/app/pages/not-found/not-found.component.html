@@ -8,7 +8,8 @@
       <p class="subtitle-text dark-grey center">Rien à faire.</p>
     </div>
   </div>
-
+@if (!authService.connected) {
   <app-button label="Login" routerLink="/login" type="button" variant="long"></app-button>
+}
 
 </div>

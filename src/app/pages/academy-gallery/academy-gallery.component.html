@@ -3,8 +3,8 @@
     <div class="space-between f-row">
 
       <div class="f-row gap-1-75 toggles">
-        <app-toggle (toggleEvent)="onPolaroid()" label="polaroid"></app-toggle>
-        <app-toggle (toggleEvent)="onZoom()" label="zoom"></app-toggle>
+        <app-toggle (toggleEvent)="onPolaroid()" [checked]="fullSize" label="polaroid"></app-toggle>
+        <app-toggle (toggleEvent)="onZoom()" [checked]="zoom" label="zoom"></app-toggle>
       </div>
       <div>
         <app-filepicker (picked)="onFilePicked($event)"></app-filepicker>

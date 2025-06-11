@@ -39,7 +39,7 @@ import {FilepickerComponent} from '../../shared/filepicker/filepicker.component'
   styleUrls: ['./academy-gallery.component.scss']
 })
 export class AcademyGalleryComponent {
-  fullSize: boolean = false;
+  fullSize: boolean = true;
   zoom: boolean = false;
   gap: string = 'gap-1-75';
   photo: File | null = null;

@@ -1,6 +1,7 @@
 //TODO add fields to dog model
 
 import {Veterinarian} from './veterinarian.model';
+import {Enrollment} from './enrollment.model';
 
 export interface Dog {
   dogId: number;
@@ -13,7 +14,7 @@ export interface Dog {
   registrationDate: string;
   sterilized: boolean;
 
-  // enrollments: Enrollment[];
+  enrollments: Enrollment[];
 
   // owner: {
   //   userId: number;

@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ButtonComponent} from '../../shared/button/button.component';
 import {Router, RouterLink} from '@angular/router';
 import {CheckboxComponent} from '../../shared/checkbox/checkbox.component';
@@ -20,13 +20,21 @@ import {AuthService} from '../../services/auth.service';
   styleUrl: './login.component.scss'
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   http = inject(HttpClient);
   formBuilder = inject(FormBuilder);
   notification = inject(NotificationService);
   router = inject(Router);
   auth = inject(AuthService)
+
+  ngOnInit(): void {
+    this.auth.connected$.subscribe(connected => {
+      if (connected) {
+        this.router.navigate(['/dashboard']);
+      }
+    });
+  }
 
   loginForm = this.formBuilder.group({
     email: ['owner@ouaf.academy', [Validators.required, Validators.email]],

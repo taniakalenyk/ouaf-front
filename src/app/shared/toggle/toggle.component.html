@@ -1,6 +1,6 @@
-<div class="f-row gap-1">
+<div class="f-row gap-0-5">
   <label [ngClass]="size === 'small' ? 'toggle-switch-small' : 'toggle-switch'">
-    <input (click)="toggle()" type="checkbox"/>
+    <input (click)="toggle()" type="checkbox" [checked]="checked"/>
     <div class="toggle-switch-background">
       <!--      <div class="toggle-switch-handle"></div>-->
       <div [ngClass]="size === 'small' ? 'toggle-switch-handle-small' : 'toggle-switch-handle'"></div>

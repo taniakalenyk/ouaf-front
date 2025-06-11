@@ -1,0 +1,39 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/flex-properties' as *;
+
+.input {
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid $light-grey;
+  outline: none;
+  background-color: $off-white;
+  color: $black;
+  height: 2.75rem;
+
+  &:focus-within {
+    border-color: $dark-grey;
+    box-shadow: 0 0 0 0;
+    color: $black;
+  }
+
+  &:disabled {
+    background-color: $dark-grey;
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: $light-grey;
+  }
+}
+
+textarea.input {
+  height: auto;
+  padding: 1rem;
+  resize: vertical;
+}
+
+.character-counter {
+  text-align: right;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

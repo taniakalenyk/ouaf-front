@@ -12,11 +12,12 @@ import {NgClass} from "@angular/common";
 export class ToggleComponent {
     @Input() label: string = '';
     @Input() size: 'regular' | 'small' = 'regular';
-    @Output() toggleEvent = new EventEmitter<void>();
+    @Input() checked: boolean = true;
+    @Output() toggleEvent = new EventEmitter<boolean>();
 
 
     toggle() {
-        this.toggleEvent.emit();
+        this.checked = !this.checked;
+        this.toggleEvent.emit(this.checked);
     }
 }
-

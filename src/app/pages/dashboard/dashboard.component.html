@@ -21,7 +21,13 @@
             </div>
           </div>
         </div>
-        <app-class-card></app-class-card>
+        @if ((enrollmentsToday$ | async)?.length) {
+          <div class="f-column gap-0-5">
+            @for (enrollment of enrollmentsToday$ | async; track enrollment.enrollmentId) {
+              <app-class-card [enrollment]="enrollment"></app-class-card>
+            }
+          </div>
+        }
       </div>
       <div class="padding-x-0-75 gap-0-5 row width-100 space-between wrap">
         <div class="f-row gap-0-5">
@@ -29,19 +35,33 @@
           <span class="accent-color button-text">COURS</span>
         </div>
         <div class="f-row gap-1-5">
-          <app-toggle label="MAYBE" size="small"></app-toggle>
-          <app-toggle label="BAILY" size="small"></app-toggle>
+          @let dogs = dogs$ | async;
+          @if (dogs?.length) {
+            @for (dog of dogs; track dog.dogId) {
+              <app-toggle
+                [label]="dog.name.toUpperCase()"
+                size="small"
+                [checked]="isDogSelected(dog.dogId)"
+                (toggleEvent)="onDogToggle(dog.dogId, $event)">
+              </app-toggle>
+            }
+          } @else {
+            <p class="dark-grey small-italic">Vous n'avez pas de chiens enregistrés</p>
+          }
         </div>
       </div>
     </div>
-    <div class="column gap-0-5 width-100 scroll padding-x-1">
-      <app-class-card></app-class-card>
-      <app-class-card></app-class-card>
-      <app-class-card></app-class-card>
-      <app-class-card></app-class-card>
-      <app-class-card></app-class-card>
-      <app-class-card></app-class-card>
-      <app-class-card></app-class-card>
+    <div class="column gap-0-5 width-100 scroll padding-x-1 padding-bottom-0-75">
+      @let enrollments = enrollments$ | async;
+      @if (enrollments?.length) {
+        @for (enrollment of enrollments; track enrollment.enrollmentId) {
+          <app-class-card [enrollment]="enrollment"></app-class-card>
+        }
+      } @else {
+        <div class=" description-text dark-grey small-italic shadow">
+          <p class="dark-grey small-italic center">Pas de cours à venir.</p>
+        </div>
+      }
     </div>
   </div>
 
@@ -58,8 +78,14 @@
         </div>
         <div class="height-100 f-row align-items">
           <div class="padding-left-1-75 column gap-1-25">
-            <app-checkbox backgr="dark" label="MAYBE"></app-checkbox>
-            <app-checkbox backgr="dark" label="BAILY"></app-checkbox>
+            @let searchDogs = dogs$ | async;
+            @if (searchDogs?.length) {
+              @for (dog of searchDogs; track dog.dogId) {
+                <app-checkbox backgr="dark" [label]="dog.name.toUpperCase()"></app-checkbox>
+              }
+            } @else {
+              <p class="off-white small-italic">Vous n'avez pas de chiens enregistrés</p>
+            }
             <app-checkbox backgr="dark" label="Cours disponibles"></app-checkbox>
           </div>
         </div>

@@ -8,7 +8,11 @@ import {ProfileComponent} from './pages/profile/profile.component';
 import {AcademyGalleryComponent} from './pages/academy-gallery/academy-gallery.component';
 import {DogProfileComponent} from './pages/dog-profile/dog-profile.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {ContactComponent} from './pages/contact/contact.component';
 // import {EmailConfirmComponent} from './shared/email-confirm/email-confirm.component';
+import {authGuard} from './guards/auth.guard';
+import {roleGuard} from './guards/role.guard';
+import {dogOwnerGuard} from './guards/dog-owner.guard';
 
 export const routes: Routes = [
   {
@@ -23,24 +27,33 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'dog-profile',
-    component: DogProfileComponent
+    component: DogProfileComponent,
+    canActivate: [authGuard, dogOwnerGuard]
   },
   {
     path: 'dog-profile/:id',
-    component: DogProfileComponent
+    component: DogProfileComponent,
+    canActivate: [authGuard, dogOwnerGuard]
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [authGuard, roleGuard(['owner', 'coach', 'admin'])]
   },
   {
     path: 'signup',
     component: SignupComponent,
     data: {background: 'signup-image'}
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: {background: 'contact-image'}
   },
   {
     path: 'logout',
@@ -51,6 +64,7 @@ export const routes: Routes = [
   {
     path: 'academy-gallery',
     component: AcademyGalleryComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'not-found',

@@ -24,7 +24,11 @@
         @if (authService.connected$ | async) {
           @if ((authService.role$ | async) == 'ROLE_OWNER') {
             <li><a class="body-text black-hover dark-grey" routerLink="/dashboard">Mes cours</a></li>
-            <li><a class="body-text black-hover dark-grey" routerLink="/dog-profile">Mes chiens</a></li>
+            @if (hasDogs$ | async) {
+              <li><a class="body-text black-hover dark-grey" routerLink="/dog-profile">Mes chiens</a></li>
+            } @else {
+              <li><a class="body-text black-hover dark-grey" routerLink="/dog-profile">Rajouter un chien</a></li>
+            }
           }
           @if ((authService.role$ | async) == 'ROLE_COACH') {
             <li><a class="body-text black-hover dark-grey" routerLink="/dashboard">Mes cours</a></li>

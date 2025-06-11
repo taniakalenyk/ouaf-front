@@ -1,0 +1,45 @@
+<div class="column-6 padding-x-2 padding-top-4 gap-1-75">
+  <div class="gap-05 f-column center">
+    <p class="medium-title-text black">Des questions ?</p>
+    <p class="bigger-body-text dark-grey">Envoyez-nous un message</p>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="f-column gap-1-25">
+    <div class="f-column gap-0-5">
+      <label class="body-text black" for="name">Nom complet</label>
+      <input class="input body-text black" formControlName="name" id="name" name="name"
+             placeholder="Entrez votre nom complet"
+             type="text"/>
+    </div>
+
+    <div class="f-column gap-0-5">
+      <label class="body-text black" for="email">E-mail</label>
+      <input class="input body-text black" formControlName="email" id="email" name="email"
+             placeholder="Entrez votre adresse e-mail"
+             type="email"/>
+    </div>
+
+    <div class="f-column gap-0-5">
+      <label class="body-text black" for="subject">Sujet</label>
+      <input class="input body-text black" formControlName="subject" id="subject" name="subject"
+             placeholder="Entrez le sujet de votre message"
+             type="text"/>
+    </div>
+
+    <div class="f-column gap-0-5">
+      <label class="body-text black" for="message">Message</label>
+      <textarea class="input body-text black" formControlName="message" id="message" name="message"
+                placeholder="Entrez votre message" rows="5"></textarea>
+      <div [ngClass]="{'accent-color': currentMessageLength >= maxMessageLength, 'dark-grey': currentMessageLength < maxMessageLength}"
+           class="character-counter body-text">{{ currentMessageLength }}
+        /{{ maxMessageLength }}
+      </div>
+    </div>
+
+    <div class="gap-1-5 f-column">
+      <div class="gap-1 f-column flex">
+        <app-button label="ENVOYER" type="submit" variant="long"></app-button>
+      </div>
+    </div>
+  </form>
+</div>

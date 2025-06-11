@@ -1,10 +1,11 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ButtonComponent} from '../../shared/button/button.component';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router, RouterLink} from '@angular/router';
 import {NotificationService} from '../../services/notification.service';
 import {environment} from '../../../environments/environment';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,12 +20,13 @@ import {environment} from '../../../environments/environment';
 })
 
 
-export class SignupComponent {
+export class SignupComponent implements OnInit {
 
   http = inject(HttpClient);
   formBuilder = inject(FormBuilder);
   notification = inject(NotificationService);
   router = inject(Router);
+  auth = inject(AuthService)
 
   signUpForm = this.formBuilder.group({
     firstName: ['user', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
@@ -39,6 +41,14 @@ export class SignupComponent {
     // city: ['', [Validators.minLength(2), Validators.maxLength(30)]],
     // postcode: ['', [Validators.minLength(2), Validators.maxLength(10)]]
   });
+
+  ngOnInit(): void {
+    this.auth.connected$.subscribe(connected => {
+      if (connected) {
+        this.router.navigate(['/dashboard']);
+      }
+    });
+  }
 
 
   // constructor(private fb: FormBuilder, private http: HttpClient) {
