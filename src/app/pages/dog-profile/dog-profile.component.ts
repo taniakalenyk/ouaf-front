@@ -121,6 +121,14 @@ export class DogProfileComponent implements OnInit {
   }
 
   private loadDogDetails(dogId: number): void {
+    // First, set the selectedDog to the basic dog info from the dogs array
+    // This ensures the tab is selected immediately
+    const basicDog = this.dogs.find(d => d.dogId === dogId);
+    if (basicDog) {
+      this.selectedDog = basicDog;
+    }
+
+    // Then load the full dog details
     this.dogService.getDog(dogId).subscribe({
       next: (fullDog: Dog) => {
         this.selectedDog = fullDog;

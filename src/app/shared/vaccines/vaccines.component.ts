@@ -1,9 +1,11 @@
 import {Component, Input} from '@angular/core';
 import {last} from 'rxjs';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-vaccines',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './vaccines.component.html',
   styleUrl: './vaccines.component.scss'
 })

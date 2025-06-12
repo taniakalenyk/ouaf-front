@@ -1,10 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {Dog} from '../../models/dog.model';
-import {DatePipe} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-dog-card',
+  standalone: true,
   imports: [
+    CommonModule,
     DatePipe
   ],
   templateUrl: './dog-card.component.html',

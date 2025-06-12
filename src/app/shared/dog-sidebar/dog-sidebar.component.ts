@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Dog} from '../../models/dog.model';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-dog-sidebar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './dog-sidebar.component.html',
   styleUrl: './dog-sidebar.component.scss'
 })

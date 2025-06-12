@@ -22,13 +22,13 @@
       <div class="profile-row gap-1-75 width-100">
         @if (selectedDog) {
           <app-dog-card [dog]="selectedDog" class="flex-2"></app-dog-card>
-          <app-dog-rewards class="flex-1"></app-dog-rewards>
+          <app-dog-rewards [dog]="selectedDog" class="flex-1"></app-dog-rewards>
         }
       </div>
 
       <div class="profile-row gap-1-75 width-100">
-        <app-vaccines class="flex-2"></app-vaccines>
         @if (selectedDog) {
+          <app-vaccines class="flex-2"></app-vaccines>
           <app-veterinarian [dog]="selectedDog" class="flex-1"></app-veterinarian>
         }
       </div>
