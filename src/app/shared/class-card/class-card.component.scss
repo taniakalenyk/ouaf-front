@@ -21,3 +21,38 @@
 .border-bottom {
   border-bottom: 1px solid $light-grey;
 }
+
+button {
+  background-color: $accent-color;
+  color: $off-white;
+  border: none;
+  padding-inline: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $black;
+  }
+
+  &:active {
+    background-color: $dark-grey;
+  }
+
+  &:disabled {
+    background-color: $light-grey;
+    color: $off-white;
+    cursor: not-allowed;
+  }
+}
+
+.location-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.location-text-area {
+  min-width: 0;
+  overflow: hidden;
+  flex: 1;
+}

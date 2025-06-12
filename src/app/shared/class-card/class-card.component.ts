@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Enrollment} from '../../models/enrollment.model';
-import {AsyncPipe, DatePipe, CommonModule} from '@angular/common';
+import {AsyncPipe, CommonModule, DatePipe} from '@angular/common';
 import {EnrollmentService} from '../../services/enrollment.service';
 import {Observable} from 'rxjs';
+import {Lesson} from '../../models/lesson.model';
 
 @Component({
   selector: 'app-class-card',
@@ -13,6 +14,7 @@ import {Observable} from 'rxjs';
 })
 export class ClassCardComponent implements OnInit {
   @Input() enrollment?: Enrollment;
+  @Input() lesson?: Lesson;
   activeEnrollmentCount$?: Observable<number>;
 
   constructor(private enrollmentService: EnrollmentService) {
@@ -22,6 +24,10 @@ export class ClassCardComponent implements OnInit {
     if (this.enrollment) {
       this.activeEnrollmentCount$ = this.enrollmentService.getActiveEnrollmentCountForLesson(
         this.enrollment.lesson.lessonId
+      );
+    } else if (this.lesson) {
+      this.activeEnrollmentCount$ = this.enrollmentService.getActiveEnrollmentCountForLesson(
+        this.lesson.lessonId
       );
     }
   }

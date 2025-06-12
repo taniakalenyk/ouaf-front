@@ -1,32 +1,49 @@
-@if (enrollment) {
+@if (enrollment || lesson) {
   <div class="column class-card gap-0-5 shadow">
     <div class="border-bottom row space-between padding-bottom-0-5">
+
       <div class="row gap-1">
         <p class="accent-color card-text">
-          {{ enrollment.lesson.startDateTime | date:'HH:mm' }}
+          @if (enrollment) {
+            {{ enrollment.lesson.startDateTime | date:'HH:mm' }}
+          } @else if (lesson) {
+            {{ lesson.startDateTime | date:'HH:mm' }}
+          }
         </p>
 
         <p class="black card-text">
-          {{ isToday(enrollment.lesson.startDateTime) ? 'AUJOURD\'HUI' : formatDateWithFrenchMonth(enrollment.lesson.startDateTime) }}
+          @if (enrollment) {
+            {{ isToday(enrollment.lesson.startDateTime) ? 'AUJOURD\'HUI' : formatDateWithFrenchMonth(enrollment.lesson.startDateTime) }}
+          } @else if (lesson) {
+            {{ isToday(lesson.startDateTime) ? 'AUJOURD\'HUI' : formatDateWithFrenchMonth(lesson.startDateTime) }}
+          }
         </p>
       </div>
 
       <div class="class-type column gap-0-12">
         <div>
           <p class="type photo-title padding-y-0-25 padding-x-0-75">
-            {{ enrollment.lesson.template.type.typeAppointment }}
+            @if (enrollment) {
+              {{ enrollment.lesson.template.type.typeAppointment }}
+            } @else if (lesson) {
+              {{ lesson.template.type.typeAppointment }}
+            }
           </p>
         </div>
 
         <p class="coach xs-italic-zoomed dark-grey">
-          avec {{ enrollment.lesson.coach.firstName }} {{ enrollment.lesson.coach.lastName }}
+          @if (enrollment) {
+            avec {{ enrollment.lesson.coach.firstName }} {{ enrollment.lesson.coach.lastName }}
+          } @else if (lesson) {
+            avec {{ lesson.coach.firstName }} {{ lesson.coach.lastName }}
+          }
         </p>
       </div>
     </div>
 
-    <div class="row space-between">
-      <div class="description f-row gap-2">
-        <div class="f-row gap-1">
+    <div class="row space-between gap-2-5">
+      <div class="description f-row gap-2 location-text-area">
+        <div class="f-row gap-1 location-text-area">
           <div class="small-icon accent-color">
             <svg fill="none" height="18" viewBox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -35,8 +52,12 @@
             </svg>
           </div>
 
-          <p class="dark-grey card-text">
-            {{ enrollment.lesson.location }}
+          <p class="dark-grey card-text location-text">
+            @if (enrollment) {
+              {{ enrollment.lesson.location }}
+            } @else if (lesson) {
+              {{ lesson.location }}
+            }
           </p>
         </div>
 
@@ -53,16 +74,25 @@
               </svg>
             </div>
 
-            <p [class]="(activeEnrollmentCount$ | async) === enrollment.lesson.template.capacity ? 'accent-color card-text' : 'dark-grey card-text'">
-              {{ activeEnrollmentCount$ | async }} / {{ enrollment.lesson.template.capacity }}
+            <p
+              [class]="(activeEnrollmentCount$ | async) === (enrollment ? enrollment.lesson.template.capacity : lesson?.template?.capacity) ? 'accent-color card-text' : 'dark-grey card-text'">
+              {{ activeEnrollmentCount$ | async }}
+              / {{ enrollment ? enrollment.lesson.template.capacity : lesson?.template?.capacity }}
             </p>
           </div>
         </div>
 
       </div>
 
-      <p class="card-text">{{ enrollment.dog.name.toUpperCase() }}</p>
-
+      @if (enrollment) {
+        <p class="card-text">{{ enrollment.dog.name.toUpperCase() }}</p>
+      } @else {
+        <button
+          class="card-text"
+          [disabled]="(activeEnrollmentCount$ | async) === lesson?.template?.capacity">
+          S'INSCRIRE
+        </button>
+      }
 
     </div>
   </div>
