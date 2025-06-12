@@ -53,7 +53,7 @@
               </svg>
             </div>
 
-            <p class="dark-grey card-text">
+            <p [class]="(activeEnrollmentCount$ | async) === enrollment.lesson.template.capacity ? 'accent-color card-text' : 'dark-grey card-text'">
               {{ activeEnrollmentCount$ | async }} / {{ enrollment.lesson.template.capacity }}
             </p>
           </div>

@@ -1,12 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Enrollment} from '../../models/enrollment.model';
-import {AsyncPipe, DatePipe} from '@angular/common';
+import {AsyncPipe, DatePipe, CommonModule} from '@angular/common';
 import {EnrollmentService} from '../../services/enrollment.service';
 import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-class-card',
-  imports: [DatePipe, AsyncPipe],
+  standalone: true,
+  imports: [DatePipe, AsyncPipe, CommonModule],
   templateUrl: './class-card.component.html',
   styleUrl: './class-card.component.scss'
 })

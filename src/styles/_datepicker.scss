@@ -93,7 +93,7 @@ thead.mat-calendar-table-header {
   /*      CALENDAR DAYS NAME      */
   & * {
     font-weight: 400 !important;
-    font-size: 0.75rem !important;
+    font-size: 0.8rem !important;
     font-family: "Murecho", sans-serif !important;
   }
 }
@@ -104,8 +104,11 @@ thead.mat-calendar-table-header {
 
 .mat-calendar-body-cell-content {
   font-weight: 400 !important;
-  font-size: 0.75rem !important;
+  //font-size: 0.75rem !important;
+  //font-size: 1.1rem !important;
   font-family: "Murecho", sans-serif !important;
+  border-width: 0.1rem !important;
+  //letter-spacing: 0.0rem !important;
 }
 
 th.mat-calendar-table-header-divider {
