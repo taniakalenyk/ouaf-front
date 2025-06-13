@@ -49,3 +49,15 @@
   background-color: $dashboard-grey;
   border-radius: 0.25rem;
 }
+
+.future-class {
+  min-height: 7.9rem;
+}
+
+.today-class {
+  max-height: 17rem;
+  overflow-y: scroll;
+  padding-bottom: 1rem;
+  padding-inline: 0.5rem;
+  margin-inline: -0.5rem;
+}

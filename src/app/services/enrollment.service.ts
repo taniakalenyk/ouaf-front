@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {Observable, map, of} from 'rxjs';
+import {map, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Enrollment} from '../models/enrollment.model';
 
@@ -78,19 +78,24 @@ export class EnrollmentService {
     );
   }
 
-  // Helper method to check if a date is in the future
+  // Helper method to check if a date is in the future (ignoring time)
   private isFutureDate(dateString: string): boolean {
     const date = new Date(dateString);
     const now = new Date();
-    return date > now;
+
+    // Compare only the date parts (year, month, day)
+    return date.getFullYear() > now.getFullYear() ||
+      (date.getFullYear() === now.getFullYear() && date.getMonth() > now.getMonth()) ||
+      (date.getFullYear() === now.getFullYear() && date.getMonth() === now.getMonth() && date.getDate() > now.getDate());
   }
 
-  // Helper method to check if a date is today (ignoring year)
+  // Helper method to check if a date is today
   private isToday(dateString: string): boolean {
     const date = new Date(dateString);
     const today = new Date();
 
     return date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth();
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
   }
 }

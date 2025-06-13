@@ -61,11 +61,15 @@ export class LessonService {
     );
   }
 
-  // Helper method to check if a date is in the future
+  // Helper method to check if a date is in the future (ignoring time)
   private isFutureDate(dateString: string): boolean {
     const date = new Date(dateString);
     const now = new Date();
-    return date > now;
+
+    // Compare only the date parts (year, month, day)
+    return date.getFullYear() > now.getFullYear() ||
+      (date.getFullYear() === now.getFullYear() && date.getMonth() > now.getMonth()) ||
+      (date.getFullYear() === now.getFullYear() && date.getMonth() === now.getMonth() && date.getDate() > now.getDate());
   }
 
   // Helper method to calculate dog age in months at the time of the lesson

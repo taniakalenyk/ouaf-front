@@ -119,13 +119,15 @@ export class DashboardComponent implements OnInit {
     // Get available lessons and filter by:
     // 1. Selected dogs in the search section (age eligibility)
     // 2. Hide full classes checkbox
+    // 3. Filter out lessons where selected dogs are already enrolled
     this.lessons$ = combineLatest([
       this.lessonService.getFutureLessons(),
       this.searchSelectedDogIds,
       this.hideFullClasses,
-      this.dogs$
+      this.dogs$,
+      this.enrollmentService.getEnrollments() // Get all enrollments to check if dogs are already enrolled
     ]).pipe(
-      switchMap(([lessons, selectedDogIds, hideFullClasses, dogs]) => {
+      switchMap(([lessons, selectedDogIds, hideFullClasses, dogs, allEnrollments]) => {
         // If no dogs are selected, show no lessons
         if (selectedDogIds.size === 0) {
           return of([]);
@@ -137,7 +139,16 @@ export class DashboardComponent implements OnInit {
           return Array.from(selectedDogIds).some(dogId => {
             const dog = dogs.find(d => d.dogId === dogId);
             if (!dog) return false;
-            return this.lessonService.isDogEligibleForLesson(dog.birthDate, lesson);
+
+            // Check if the dog is already enrolled in this lesson
+            const isAlreadyEnrolled = allEnrollments.some(enrollment =>
+              enrollment.dog.dogId === dogId &&
+              enrollment.lesson.lessonId === lesson.lessonId &&
+              !enrollment.enrollmentCancellationReason // Only consider active enrollments
+            );
+
+            // Only include lessons where the dog is eligible AND not already enrolled
+            return this.lessonService.isDogEligibleForLesson(dog.birthDate, lesson) && !isAlreadyEnrolled;
           });
         });
 

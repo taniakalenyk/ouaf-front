@@ -22,7 +22,7 @@
           </div>
         </div>
         @if ((enrollmentsToday$ | async)?.length) {
-          <div class="f-column gap-0-5">
+          <div class="f-column gap-0-5 today-class">
             @for (enrollment of enrollmentsToday$ | async; track enrollment.enrollmentId) {
               <app-class-card [enrollment]="enrollment"></app-class-card>
             }
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="column gap-0-5 width-100 scroll padding-x-1 padding-bottom-0-75">
+    <div class="column gap-0-5 width-100 scroll padding-x-1 padding-bottom-0-75 future-class">
       @let enrollments = enrollments$ | async;
       @if (enrollments?.length) {
         @for (enrollment of enrollments; track enrollment.enrollmentId) {
