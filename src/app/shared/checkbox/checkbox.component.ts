@@ -12,6 +12,7 @@ import {NgClass} from '@angular/common';
 })
 export class CheckboxComponent {
   @Input() label: string = '';
+  @Input() additionLabel: string = '';
   @Input() backgr: 'dark' | 'light' = 'light';
   @Input() checked: boolean = false;
   @Output() checkedChange = new EventEmitter<boolean>();

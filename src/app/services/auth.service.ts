@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
 
@@ -15,7 +15,9 @@ export class AuthService {
   id$ = this.idSubject.asObservable();
 
 
-  constructor(private router: Router) {
+  private router = inject(Router);
+
+  constructor() {
     const jwt = localStorage.getItem("jwt")
     if (jwt != null) {
       this.decodeJwt(jwt)

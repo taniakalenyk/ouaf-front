@@ -1,5 +1,7 @@
 <label class="checkbox-wrapper">
-  <input class="checkbox" type="checkbox" [checked]="checked" (change)="onCheckboxChange($event)"/>
+  <input (change)="onCheckboxChange($event)" [checked]="checked" class="checkbox" type="checkbox"/>
   <span [ngClass]="backgr === 'dark' ? 'light-label' : 'dark-grey'"
         class="body-text">{{ label }}</span>
+  <span [ngClass]="backgr === 'dark' ? 'light-label' : 'dark-grey'"
+        class="small-italic">{{ additionLabel }}</span>
 </label>

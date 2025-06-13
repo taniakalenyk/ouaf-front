@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ClassCardComponent} from '../../shared/class-card/class-card.component';
 import {ToggleComponent} from '../../shared/toggle/toggle.component';
 import {CheckboxComponent} from '../../shared/checkbox/checkbox.component';
@@ -15,6 +15,7 @@ import {EnrollmentService} from '../../services/enrollment.service';
 import {AuthService} from '../../services/auth.service';
 import {LessonService} from '../../services/lesson.service';
 import {Lesson} from '../../models/lesson.model';
+import {DogService} from '../../services/dog.service';
 
 interface Quote {
   quoteText: string;
@@ -36,32 +37,80 @@ interface Quote {
 })
 export class DashboardComponent implements OnInit {
   quote: Quote | undefined;
-  day: number;
-  month: number;
-  formattedDay: string;
-  formattedMonth: string;
-  user$: Observable<User>;
-  dogs$: Observable<Dog[]>;
-  enrollments$: Observable<Enrollment[]>;
-  enrollmentsToday$: Observable<Enrollment[]>;
-  lessons$: Observable<Lesson[]>;
+  day!: number;
+  month!: number;
+  formattedDay!: string;
+  formattedMonth!: string;
+  user$!: Observable<User>;
+  dogs$!: Observable<Dog[]>;
+  enrollments$!: Observable<Enrollment[]>;
+  enrollmentsToday$!: Observable<Enrollment[]>;
+  lessons$!: Observable<Lesson[]>;
   // Track hide full classes checkbox
   hideFullClasses = new BehaviorSubject<boolean>(false);
+  protected dogService = inject(DogService);
   // Track selected dogs for filtering enrollments (left side)
   private selectedDogIds = new BehaviorSubject<Set<number>>(new Set<number>());
   // Track selected dogs for filtering lessons (right side search)
   private searchSelectedDogIds = new BehaviorSubject<Set<number>>(new Set<number>());
   // Track all dogs to initialize selected dogs
   private allDogs: Dog[] = [];
+  private http = inject(HttpClient);
+  private userService = inject(UserService);
+  private enrollmentService = inject(EnrollmentService);
+  private authService = inject(AuthService);
+  private lessonService = inject(LessonService);
 
+  ngOnInit(): void {
+    this.initializeComponent();
+    this.http.get<Quote>('http://localhost:8080/api/quotes/daily').subscribe({
+      next: data => this.quote = data,
+      error: err => console.error('Échec de la récupération de la citation :', err)
+    });
+  }
 
-  constructor(
-    private http: HttpClient,
-    private userService: UserService,
-    private enrollmentService: EnrollmentService,
-    private authService: AuthService,
-    private lessonService: LessonService
-  ) {
+  // Handle toggle event for a dog
+  onDogToggle(dogId: number, isChecked: boolean): void {
+    const currentSelectedDogIds = new Set(this.selectedDogIds.value);
+
+    if (isChecked) {
+      currentSelectedDogIds.add(dogId);
+    } else {
+      currentSelectedDogIds.delete(dogId);
+    }
+
+    this.selectedDogIds.next(currentSelectedDogIds);
+  }
+
+  // Check if a dog is currently selected (for toggles)
+  isDogSelected(dogId: number): boolean {
+    return this.selectedDogIds.value.has(dogId);
+  }
+
+  // Check if a dog is selected in the search section (for checkboxes)
+  isSearchDogSelected(dogId: number): boolean {
+    return this.searchSelectedDogIds.value.has(dogId);
+  }
+
+  // Handle dog selection in the search section
+  onSearchDogToggle(dogId: number, isChecked: boolean): void {
+    const currentSelectedDogIds = new Set(this.searchSelectedDogIds.value);
+
+    if (isChecked) {
+      currentSelectedDogIds.add(dogId);
+    } else {
+      currentSelectedDogIds.delete(dogId);
+    }
+
+    this.searchSelectedDogIds.next(currentSelectedDogIds);
+  }
+
+  // Handle hide full classes checkbox
+  onHideFullClassesToggle(isChecked: boolean): void {
+    this.hideFullClasses.next(isChecked);
+  }
+
+  private initializeComponent(): void {
     const now = new Date();
     this.day = now.getDate();
     this.month = now.getMonth() + 1;
@@ -175,55 +224,6 @@ export class DashboardComponent implements OnInit {
         );
       })
     );
-  }
-
-
-  ngOnInit(): void {
-    this.http.get<Quote>('http://localhost:8080/api/quotes/daily').subscribe({
-      next: data => this.quote = data,
-      error: err => console.error('Échec de la récupération de la citation :', err)
-    });
-  }
-
-  // Handle toggle event for a dog
-  onDogToggle(dogId: number, isChecked: boolean): void {
-    const currentSelectedDogIds = new Set(this.selectedDogIds.value);
-
-    if (isChecked) {
-      currentSelectedDogIds.add(dogId);
-    } else {
-      currentSelectedDogIds.delete(dogId);
-    }
-
-    this.selectedDogIds.next(currentSelectedDogIds);
-  }
-
-  // Check if a dog is currently selected (for toggles)
-  isDogSelected(dogId: number): boolean {
-    return this.selectedDogIds.value.has(dogId);
-  }
-
-  // Check if a dog is selected in the search section (for checkboxes)
-  isSearchDogSelected(dogId: number): boolean {
-    return this.searchSelectedDogIds.value.has(dogId);
-  }
-
-  // Handle dog selection in the search section
-  onSearchDogToggle(dogId: number, isChecked: boolean): void {
-    const currentSelectedDogIds = new Set(this.searchSelectedDogIds.value);
-
-    if (isChecked) {
-      currentSelectedDogIds.add(dogId);
-    } else {
-      currentSelectedDogIds.delete(dogId);
-    }
-
-    this.searchSelectedDogIds.next(currentSelectedDogIds);
-  }
-
-  // Handle hide full classes checkbox
-  onHideFullClassesToggle(isChecked: boolean): void {
-    this.hideFullClasses.next(isChecked);
   }
 
   // Filter out full lessons

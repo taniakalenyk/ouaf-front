@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Dog} from '../../models/dog.model';
 import {CommonModule, DatePipe} from '@angular/common';
+import {DogService} from '../../services/dog.service';
 
 @Component({
   selector: 'app-dog-card',
@@ -15,61 +16,13 @@ import {CommonModule, DatePipe} from '@angular/common';
 export class DogCardComponent {
   @Input() dog!: Dog;
 
-  // get profilePicture(): string | null {
-  //   return this.dog?.photoId ? `/images/gallery/${this.dog.photoId}` : null;
-  // }
+  dogService = inject(DogService);
 
   get age(): string {
-    if (!this.dog.birthDate) return '';
-
-    const birth = new Date(this.dog.birthDate);
-    const today = new Date();
-
-    let years = today.getFullYear() - birth.getFullYear();
-    let months = today.getMonth() - birth.getMonth();
-    let days = today.getDate() - birth.getDate();
-
-    if (days < 0) {
-      months -= 1;
-      days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    }
-    if (months < 0) {
-      years -= 1;
-      months += 12;
-    }
-
-    if (years > 0) {
-      return `${years} an${years > 1 ? 's' : ''}${months > 0 ? ` et ${months} mois` : ''}`;
-    } else if (months > 0) {
-      return `${months} mois`;
-    } else {
-      return `${days} jour${days > 1 ? 's' : ''}`;
-    }
+    return this.dogService.getFormattedAge(this.dog);
   }
 
   get breed(): string {
-    const primary = this.dog.primaryBreed?.breedName;
-    const secondary = this.dog.secondaryBreed?.breedName;
-
-    if (!primary) return '';
-    if (secondary && secondary !== primary) {
-      return `${primary}\n+ ${secondary}`;
-    }
-    return primary;
+    return this.dogService.getFormattedBreed(this.dog);
   }
 }
-
-
-// calculateAge(dateString: string): number {
-//   const birthDate = new Date(dateString);
-//   const today = new Date();
-//
-//   let age = today.getFullYear() - birthDate.getFullYear();
-//   const m = today.getMonth() - birthDate.getMonth();
-//
-//   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-//     age--;
-//   }
-//
-//   return age;
-// }

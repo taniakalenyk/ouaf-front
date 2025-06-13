@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, model} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, model, OnInit} from '@angular/core';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatCardModule} from "@angular/material/card";
 import {DateAdapter, MAT_DATE_LOCALE, provideNativeDateAdapter} from '@angular/material/core';
@@ -19,12 +19,11 @@ import localeFr from '@angular/common/locales/fr';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class DatepickerComponent {
+export class DatepickerComponent implements OnInit {
   selected = model<Date | null>(null);
+  private dateAdapter = inject<DateAdapter<Date>>(DateAdapter);
 
-  constructor(
-    private dateAdapter: DateAdapter<Date>,
-  ) {
+  ngOnInit(): void {
     // Register French locale
     registerLocaleData(localeFr);
 

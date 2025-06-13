@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {AuthService} from '../auth.service';
 import {OwnerService} from './owner.service';
 import {Observable, throwError} from 'rxjs';
@@ -9,13 +9,10 @@ import {User} from '../../models/user.model';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
-  constructor(
-    private authService: AuthService,
-    private ownerService: OwnerService,
-    private coachService: CoachService,
-    private adminService: AdminService,
-  ) {
-  }
+  private authService = inject(AuthService);
+  private ownerService = inject(OwnerService);
+  private coachService = inject(CoachService);
+  private adminService = inject(AdminService);
 
   getCurrentUser(): Observable<User> {
     const role = this.authService.role?.replace('ROLE_', '').toLowerCase();

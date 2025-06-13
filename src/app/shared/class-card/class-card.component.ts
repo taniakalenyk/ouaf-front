@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {Enrollment} from '../../models/enrollment.model';
 import {AsyncPipe, CommonModule, DatePipe} from '@angular/common';
 import {EnrollmentService} from '../../services/enrollment.service';
@@ -17,8 +17,7 @@ export class ClassCardComponent implements OnInit {
   @Input() lesson?: Lesson;
   activeEnrollmentCount$?: Observable<number>;
 
-  constructor(private enrollmentService: EnrollmentService) {
-  }
+  private enrollmentService = inject(EnrollmentService);
 
   ngOnInit(): void {
     if (this.enrollment) {

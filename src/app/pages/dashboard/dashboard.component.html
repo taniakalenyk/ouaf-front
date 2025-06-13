@@ -83,7 +83,8 @@
               @for (dog of searchDogs; track dog.dogId) {
                 <app-checkbox
                   backgr="dark"
-                  [label]="dog.name.toUpperCase()"
+                  label="{{ dog.name.toUpperCase()}}"
+                  additionLabel="{{dogService.getFormattedAge(dog)}}"
                   [checked]="isSearchDogSelected(dog.dogId)"
                   (checkedChange)="onSearchDogToggle(dog.dogId, $event)">
                 </app-checkbox>
