@@ -1,7 +1,20 @@
 <label class="checkbox-wrapper">
-  <input (change)="onCheckboxChange($event)" [checked]="checked" class="checkbox" type="checkbox"/>
-  <span [ngClass]="backgr === 'dark' ? 'light-label' : 'dark-grey'"
+  @if (isRadio) {
+    <input
+      (change)="onCheckboxChange($event)"
+      [checked]="checked"
+      class="radio"
+      type="radio"
+      [name]="name"/>
+  } @else {
+    <input
+      (change)="onCheckboxChange($event)"
+      [checked]="checked"
+      class="checkbox"
+      type="checkbox"/>
+  }
+  <span [ngClass]="backgr === 'dark' ? 'light-label' : 'dark-label'"
         class="body-text">{{ label }}</span>
-  <span [ngClass]="backgr === 'dark' ? 'light-label' : 'dark-grey'"
+  <span [ngClass]="backgr === 'dark' ? 'light-label' : 'dark-label'"
         class="small-italic">{{ additionLabel }}</span>
 </label>

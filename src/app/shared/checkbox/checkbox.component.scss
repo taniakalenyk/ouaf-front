@@ -1,6 +1,7 @@
 @use '../../../styles/colors' as *;
 
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="radio"] {
   -webkit-appearance: none;
   appearance: none;
   background-color: $off-white;
@@ -36,6 +37,13 @@ input[type="checkbox"] {
   }
 }
 
+input[type="radio"] {
+  border-radius: 50%;
+
+  &::before {
+    border-radius: 50%;
+  }
+}
 
 .checkbox-wrapper {
   display: flex;
@@ -44,7 +52,6 @@ input[type="checkbox"] {
   align-items: center;
 
   &:hover * {
-    color: $light-grey;
     border-color: $dark-grey;
     cursor: pointer;
   }
@@ -52,5 +59,18 @@ input[type="checkbox"] {
 
 .light-label {
   color: $off-white;
+
+  &:hover {
+    color: $light-grey;
+    cursor: pointer;
+  }
 }
 
+.dark-label {
+  color: $dark-grey;
+
+  &:hover {
+    color: $black;
+    cursor: pointer;
+  }
+}

@@ -15,6 +15,8 @@ export class CheckboxComponent {
   @Input() additionLabel: string = '';
   @Input() backgr: 'dark' | 'light' = 'light';
   @Input() checked: boolean = false;
+  @Input() isRadio: boolean = false;
+  @Input() name: string = '';
   @Output() checkedChange = new EventEmitter<boolean>();
 
   onCheckboxChange(event: Event): void {

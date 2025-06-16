@@ -77,21 +77,25 @@
           <span class="button-text off-white">RECHERCHE</span>
         </div>
         <div class="height-100 f-row align-items">
-          <div class="padding-left-1-75 column gap-1-25">
-            @let searchDogs = dogs$ | async;
-            @if (searchDogs?.length) {
-              @for (dog of searchDogs; track dog.dogId) {
-                <app-checkbox
-                  backgr="dark"
-                  label="{{ dog.name.toUpperCase()}}"
-                  additionLabel="{{dogService.getFormattedAge(dog)}}"
-                  [checked]="isSearchDogSelected(dog.dogId)"
-                  (checkedChange)="onSearchDogToggle(dog.dogId, $event)">
-                </app-checkbox>
+          <div class="f-column padding-left-1-75 gap-5">
+            <div class="column gap-1-25">
+              @let searchDogs = dogs$ | async;
+              @if (searchDogs?.length) {
+                @for (dog of searchDogs; track dog.dogId) {
+                  <app-checkbox
+                    backgr="dark"
+                    label="{{ dog.name.toUpperCase()}}"
+                    additionLabel="{{dogService.getFormattedAge(dog)}}"
+                    [checked]="isSearchDogSelected(dog.dogId)"
+                    (checkedChange)="onSearchDogToggle(dog.dogId, $event)"
+                    [isRadio]="true"
+                    [name]="'dogSelection'">
+                  </app-checkbox>
+                }
+              } @else {
+                <p class="off-white small-italic">Vous n'avez pas de chiens enregistrés</p>
               }
-            } @else {
-              <p class="off-white small-italic">Vous n'avez pas de chiens enregistrés</p>
-            }
+            </div>
             <app-checkbox
               (checkedChange)="onHideFullClassesToggle($event)"
               [checked]="(hideFullClasses | async) ?? false"

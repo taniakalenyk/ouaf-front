@@ -94,15 +94,15 @@ export class DashboardComponent implements OnInit {
 
   // Handle dog selection in the search section
   onSearchDogToggle(dogId: number, isChecked: boolean): void {
-    const currentSelectedDogIds = new Set(this.searchSelectedDogIds.value);
+    // For radio buttons, we create a new set with only the selected dog
+    const newSelectedDogIds = new Set<number>();
 
     if (isChecked) {
-      currentSelectedDogIds.add(dogId);
-    } else {
-      currentSelectedDogIds.delete(dogId);
+      // Add only the currently selected dog
+      newSelectedDogIds.add(dogId);
     }
 
-    this.searchSelectedDogIds.next(currentSelectedDogIds);
+    this.searchSelectedDogIds.next(newSelectedDogIds);
   }
 
   // Handle hide full classes checkbox

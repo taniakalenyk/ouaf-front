@@ -17,6 +17,7 @@ export class ClassCardComponent implements OnInit {
   @Input() lesson?: Lesson;
   activeEnrollmentCount$?: Observable<number>;
 
+
   private enrollmentService = inject(EnrollmentService);
 
   ngOnInit(): void {
